@@ -1,0 +1,41 @@
+body {
+    // background-image: url("/images/back.png");
+    // background-size: cover;
+    // background-position: center;
+    background-color: #cccccc;
+    width: 100vw;
+    max-width: 100vw;
+}
+@font-face {
+    font-family: "BigNoodleTitling";
+    src: url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.eot");
+    src: url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.eot?#iefix")
+    format("embedded-opentype"), url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.woff2")
+    format("woff2"), url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.svg#BigNoodleTitling") format("svg");
+    font-display: swap;
+}
+.mainContainer {
+    display: block;
+    width: 100%;
+    .paddingTopPages {
+        padding: 240px 0 0 0;
+        @include media(md) {
+            padding: 200px 0 0 0;
+        }
+    }
+    .containerMFL {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .containerFullMFL {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

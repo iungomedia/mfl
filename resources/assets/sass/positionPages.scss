@@ -1,0 +1,106 @@
+.pagesScore {
+	.containerFilters {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 20px;
+		.titlePages {
+			font-family: BigNoodleTitling;
+			font-size:36px;
+			margin-bottom: 8px;
+		    font-weight: 500;
+		    line-height: 1.2;
+		    padding: 0 20px;
+		}
+		.formFilters {
+			position: relative;
+			display: block;
+			width: 100%;
+			.itemFilter {
+				position: relative;
+				display: block;
+				float: left;
+				width: 25%;
+				padding:10px 20px;
+				@include media(sm) {
+				    width: 100%;
+				    padding: 5px 20px;
+				}
+			}
+		}
+	}
+	.containerCards {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 20px;
+		overflow: hidden;
+		.tableScore {
+			position: relative;
+			display: block;
+			float: left;
+			width: 100%;
+			.table {
+				thead {
+					tr {
+						th {
+							text-align: center;
+							@include media(sm) {
+							    font-size: 10px;
+							}
+						}
+					}
+				}
+				tbody {
+					tr {
+						.columTableRow {
+							text-align: center;
+							vertical-align: middle;
+							.infoTeam {
+								display: inline-block;
+								width: 100%;
+								max-width: 250px;
+								text-align: left;
+								.imageTeam {
+									display: inline-block;
+									vertical-align: middle;
+									width: 80px;
+									text-align: center;
+									.iconTeam {
+										display: inline-block;
+										height: 30px;
+										@include media(sm) {
+										    height: 20px;
+										}
+									}
+								}
+								.nameTeam {
+									display: inline-block;
+									vertical-align: middle;
+									padding: 0 20px;
+									.titleNameTeam {
+									    display: inline-block;
+									    height: 100%;
+									    width: 100%;
+									    font-size: 16px;
+									    letter-spacing: 1px;
+									    text-align: center;
+									    @include media(sm) {
+										    font-size: 8px;
+										}
+									}
+								}
+							}
+							.dataTeam {
+								vertical-align: middle;
+								@include media(sm) {
+								    font-size: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
