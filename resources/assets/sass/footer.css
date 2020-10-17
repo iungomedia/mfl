@@ -45,7 +45,13 @@
   height: 100%;
 }
 
-.footer .containerFooter .socialFooter .listSocialFooter .itemSocialFooter .linkSocialFooter .iconSocialFooter {
+.footer
+  .containerFooter
+  .socialFooter
+  .listSocialFooter
+  .itemSocialFooter
+  .linkSocialFooter
+  .iconSocialFooter {
   display: inline-block;
   height: 100%;
   padding: 0 8px;
@@ -54,7 +60,13 @@
   font-size: 30px;
 }
 
-.footer .containerFooter .socialFooter .listSocialFooter .itemSocialFooter .linkSocialFooter .iconSocialFooter:hover {
+.footer
+  .containerFooter
+  .socialFooter
+  .listSocialFooter
+  .itemSocialFooter
+  .linkSocialFooter
+  .iconSocialFooter:hover {
   color: #00bd56;
 }
 

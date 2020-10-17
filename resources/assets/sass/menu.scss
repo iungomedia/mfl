@@ -1,403 +1,401 @@
 .mflNavbar {
-	position:fixed;
-	width: 100%;
-	z-index: 10;
-	box-shadow: 0 2px 5px rgba(0,0,0,.3);
-	.topBar {
-		position: relative;
-		display: block;
-		background-color: #033275;
-		height: 100px;
-		width: 100%;
-		.containerTopBar {
-			position: relative;
-			display: block;
-			height: 100%;
-			width: 100%;
-			// max-width: 1200px;
-			margin: 0 auto;
-			.logo {
-				z-index: 2;
-				position: absolute;
-				top: 50%;
-				left: 30px;
-				transform: translateY(- 50%);
-				.imgLogo {
-					position: relative;
-					display: block;
-					width: auto;
-					height: 50px;
-					@include media(md) {
-					    height: 45px;
-					}
-				}
-			}
-			.triggerNavbar {
-				display: none;
-				position: absolute;
-			    top: 50%;
-			    right: 30px;
-			    transform: translateY(- 50%);
-			    width: 50px;
-			    height: 50px;
-			    text-align: center;
-				@include media(sm) {
-				    display: block;
-				}
-				.iconMenu {
-					font-size: 40px;
-					color: #fff;
-					line-height: 50px;
-				}
-			}
-			.mflNavbarCollapse {
-				position: absolute;
-				display: block;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				@include media(sm) {
-					position: fixed;
-				    opacity: 0;
-				    visibility: hidden;
-				    position: fixed;
-				    top: -100%;
-				    left: 0;
-				    width: 100vw;
-				    height: 100vh;
-				    background-color: #033275;
-				    z-index: 20;
-				    padding: 120px 0 50px 0;
-				    &.open {
-				    	top:0;
-				    	opacity: 1;
-				    	visibility: visible;
-						transition: all 0.5s ease-in-out;
-				    }
-				}
-				.logoResponsive {
-					display: none;
-					z-index: 2;
-					position: absolute;
-					top: 50px;
-					left: 30px;
-					transform: translateY(- 50%);
-					@include media(sm) {
-					    display: block;
-					}
-					.imgLogo {
-						position: relative;
-						display: block;
-						width: auto;
-						height: 50px;
-						@include media(md) {
-						    height: 45px;
-						}
-					}
-				}
-				.closeMenuResponsive {
-					display: none;
-					position: absolute;
-				    top: 50px;
-				    right: 30px;
-				    transform: translateY(- 50%);
-				    width: 50px;
-				    height: 50px;
-				    text-align: center;
-					@include media(sm) {
-					    display: block;
-					}
-					.iconClose {
-						font-size: 40px;
-						color: #fff;
-						line-height: 50px;
-					}
-				}
-				.mflNavbarCollapseList {
-					position: relative;
-					display: block;
-					float: left;
-					margin: 0 0 0 270px;
-					width: calc(100% - 470px);
-					height: 100%;
-					text-align: center;
-					@include media(md) {
-					    margin: 0 0 0 220px;
-					    width: calc(100% - 380px);
-					}
-					@include media(sm) {
-					    position: relative;
-					    display: block;
-					    height: auto;
-					    width: 100%;
-					    margin:0;
-					    text-align: center;
-					}
-					.mflNavbarCollapseItem{
-						display: inline-block;
-						height: 100%;
-						@include media(sm) {
-							display: block;
-							margin: 20px 0;
-						    height: auto;
-						    width: auto;
-						}
-						.nmflNavbarCollapseLink {
-							display: inline-block;
-							height: 100%;
-							line-height: 100px;
-							padding: 0 15px;
-							color: #fff;
-							text-decoration: none;
-							font-family: BigNoodleTitling;
-							font-size: 28px;
-							letter-spacing: 1px;
-							@include media(md) {
-							   font-size: 28px;
-							   padding: 0 7px;
-							}
-							@include media(sm) {
-								font-size: 20px;
-							   	padding: 0 7px;
-							   	line-height: 1.3;
-						   	}
-							span {
-								font-family: BigNoodleTitling;
-								font-size: 28px;
-
-							}
-							&:hover {
-								color: #00bd56;
-								span {
-									border-bottom: 2px solid #00bd56;
-									font-family: BigNoodleTitling;
-								}
-							}
-						}
-					}
-				}
-				.mflNavbarSocialList {
-					position: relative;
-					display: block;
-					float: left;
-					width: 200px;
-					height: 100%;
-					text-align: center;
-					@include media(md) {
-					   width: 160px;
-					}
-					@include media(sm) {
-					    position: relative;
-					    display: block;
-					    height: auto;
-					    width: 100%;
-					    margin: 0 auto;
-					}
-					.mflNavbarSocialItem {
-						display: inline-block;
-						height: 100%;
-						.mflNavbarSocialLink {
-							display: inline-block;
-							height: 100%;
-							line-height: 100px;
-							padding: 0 8px;
-							color: #fff;
-							text-decoration: none;
-							font-size: 30px;
-							&:hover {
-								color: #00bd56;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.bottomBar {
-		position: relative;
-		display: block;
-		margin: 0;
-		background-color: #fff;
-		height: 90px;
-		.containerBottomBar {
-			position: relative;
-			display: block;
-			height: 100%;
-			width: 100%;
-			// max-width: 1200px;
-			margin: 0 auto;
-			.leftBottomBar {
-				position: relative;
-				display: block;
-				float: left;
-				width: 200px;
-				height: 100%;
-				// border-left: 3px solid #bebebe;
-				border-right: 2px solid #eee;
-				@include media(md) {
-				    width: 120px;
-				}
-				@include media(sm) {
-				    width: 20px;
-				}
-				.titleBottomBar {
-					font-family: BigNoodleTitling;
-					display: inline-block;
-					height: 100%;
-					width: 100%;
-					line-height: 90px;
-					font-size: 20px;
-					letter-spacing: 1px;
-					text-align: center;
-					@include media(md) {
-					    font-size: 18px;
-					}
-					@include media(sm) {
-					    transform: rotate(-90deg);
-					    font-size: 12px;
-					    display: none;
-					}
-				}
-			}
-			.centerBottomBar {
-				position: relative;
-				display: block;
-				float: left;
-				width: calc(100% - 400px);
-				height: 100%;
-				overflow: hidden;
-				@include media(md) {
-				    width: calc(100% - 240px);
-				}
-				@include media(sm) {
-				    width: calc(100% - 40px);
-				}
-				.listResultCenterBottomBar {
-					display: block;
-					float: left;
-					width: 100%;
-					height: 100%;
-					.itemResultCenterBottomBar {
-						display: block;
-						float: left;
-						width: 200px;
-						height: 100%;
-						border-left: 1px solid #eee;
-						border-right: 1px solid #eee;
-						padding: 5px 0;
-						.headResult {
-							display: block;
-							float: left;
-							width: 100%;
-							height: 60px;
-							padding: 0 10px;
-							.rowResult {
-								display: block;
-								float: left;
-								width: 100%;
-								height: 30px;
-								.logoTeam {
-									display: block;
-									float: left;
-									width: 40px;
-									height: 100%;
-									padding: 5px 0;
-									.iconTeam {
-										display: block;
-										width: auto;
-										height: 100%;
-										margin: 0 auto;
-									}
-								}
-								.nameTeam {
-									display: block;
-									float: left;
-									width: calc(100% - 80px);
-									height: 100%;
-									vertical-align: middle;
-									.titleNameTeam {
-										padding: 0 10px;
-										line-height: 30px;
-										font-size: 12px;
-										font-weight: 600;
-									}
-								}
-								.scoreTeam {
-									display: block;
-									float: left;
-									width: 40px;
-									height: 100%;
-									text-align: center;
-									.dataScoreTeam {
-										padding: 0 10px;
-										line-height: 30px;
-										font-size: 12px;
-										font-weight: 600;
-									}
-								}
-							}
-						}
-						.footerResult {
-							display: block;
-							float: left;
-							width: 100%;
-							height: 20px;
-							padding: 0 10px;
-							.rowDateResult {
-								display: block;
-								float: left;
-								width: 100%;
-								height: 100%;
-								text-align: center;
-								.dateResult {
-									font-size: 10px;
-									font-weight: 600;
-									line-height: 20px;
-								}
-							}
-						}
-					}
-				}
-			}
-			.rightBottomBar {
-				position: relative;
-				display: block;
-				float: left;
-				width: 200px;
-				height: 100%;
-				border-left: 2px solid #eee;
-				// border-right: 3px solid #bebebe;
-				@include media(md) {
-				    width: 120px;
-				}
-				@include media(sm) {
-				    width: 20px;
-				}
-				.moreBottomBar {
-					font-family: BigNoodleTitling;
-					display: inline-block;
-					height: 100%;
-					width: 100%;
-					line-height: 90px;
-					font-size: 30px;
-					letter-spacing: 1px;
-					text-align: center;
-					text-decoration: none;
-					@include media(md) {
-					    font-size: 18px;
-					}
-					@include media(sm) {
-					    transform: rotate(-90deg);
-					    font-size: 12px;
-					    line-height: 1.3;
-					    display: none;
-					}
-					&:hover {
-						color: #00bd56;
-					}
-
-				}
-			}
-		}
-	}
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  .topBar {
+    position: relative;
+    display: block;
+    background-color: #033275;
+    height: 100px;
+    width: 100%;
+    .containerTopBar {
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+      // max-width: 1200px;
+      margin: 0 auto;
+      .logo {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+        .imgLogo {
+          position: relative;
+          display: block;
+          width: auto;
+          height: 50px;
+          @include media(md) {
+            height: 45px;
+          }
+        }
+      }
+      .triggerNavbar {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        @include media(sm) {
+          display: block;
+        }
+        .iconMenu {
+          font-size: 40px;
+          color: #fff;
+          line-height: 50px;
+        }
+      }
+      .mflNavbarCollapse {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        @include media(sm) {
+          position: fixed;
+          opacity: 0;
+          visibility: hidden;
+          position: fixed;
+          top: -100%;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: #033275;
+          z-index: 20;
+          padding: 120px 0 50px 0;
+          &.open {
+            top: 0;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+        .logoResponsive {
+          display: none;
+          z-index: 2;
+          position: absolute;
+          top: 50px;
+          left: 30px;
+          transform: translateY(-50%);
+          @include media(sm) {
+            display: block;
+          }
+          .imgLogo {
+            position: relative;
+            display: block;
+            width: auto;
+            height: 50px;
+            @include media(md) {
+              height: 45px;
+            }
+          }
+        }
+        .closeMenuResponsive {
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 30px;
+          transform: translateY(-50%);
+          width: 50px;
+          height: 50px;
+          text-align: center;
+          @include media(sm) {
+            display: block;
+          }
+          .iconClose {
+            font-size: 40px;
+            color: #fff;
+            line-height: 50px;
+          }
+        }
+        .mflNavbarCollapseList {
+          position: relative;
+          display: block;
+          float: left;
+          margin: 0 0 0 270px;
+          width: calc(100% - 470px);
+          height: 100%;
+          text-align: center;
+          @include media(md) {
+            margin: 0 0 0 220px;
+            width: calc(100% - 380px);
+          }
+          @include media(sm) {
+            position: relative;
+            display: block;
+            height: auto;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+          }
+          .mflNavbarCollapseItem {
+            display: inline-block;
+            height: 100%;
+            @include media(sm) {
+              display: block;
+              margin: 20px 0;
+              height: auto;
+              width: auto;
+            }
+            .nmflNavbarCollapseLink {
+              display: inline-block;
+              height: 100%;
+              line-height: 100px;
+              padding: 0 15px;
+              color: #fff;
+              text-decoration: none;
+              font-family: BigNoodleTitling;
+              font-size: 28px;
+              letter-spacing: 1px;
+              @include media(md) {
+                font-size: 28px;
+                padding: 0 7px;
+              }
+              @include media(sm) {
+                font-size: 20px;
+                padding: 0 7px;
+                line-height: 1.3;
+              }
+              span {
+                font-family: BigNoodleTitling;
+                font-size: 28px;
+              }
+              &:hover {
+                color: #00bd56;
+                span {
+                  border-bottom: 2px solid #00bd56;
+                  font-family: BigNoodleTitling;
+                }
+              }
+            }
+          }
+        }
+        .mflNavbarSocialList {
+          position: relative;
+          display: block;
+          float: left;
+          width: 200px;
+          height: 100%;
+          text-align: center;
+          @include media(md) {
+            width: 160px;
+          }
+          @include media(sm) {
+            position: relative;
+            display: block;
+            height: auto;
+            width: 100%;
+            margin: 0 auto;
+          }
+          .mflNavbarSocialItem {
+            display: inline-block;
+            height: 100%;
+            .mflNavbarSocialLink {
+              display: inline-block;
+              height: 100%;
+              line-height: 100px;
+              padding: 0 8px;
+              color: #fff;
+              text-decoration: none;
+              font-size: 30px;
+              &:hover {
+                color: #00bd56;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottomBar {
+    position: relative;
+    display: block;
+    margin: 0;
+    background-color: #fff;
+    height: 90px;
+    .containerBottomBar {
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+      // max-width: 1200px;
+      margin: 0 auto;
+      .leftBottomBar {
+        position: relative;
+        display: block;
+        float: left;
+        width: 200px;
+        height: 100%;
+        // border-left: 3px solid #bebebe;
+        border-right: 2px solid #eee;
+        @include media(md) {
+          width: 120px;
+        }
+        @include media(sm) {
+          width: 20px;
+        }
+        .titleBottomBar {
+          font-family: BigNoodleTitling;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          line-height: 90px;
+          font-size: 20px;
+          letter-spacing: 1px;
+          text-align: center;
+          @include media(md) {
+            font-size: 18px;
+          }
+          @include media(sm) {
+            transform: rotate(-90deg);
+            font-size: 12px;
+            display: none;
+          }
+        }
+      }
+      .centerBottomBar {
+        position: relative;
+        display: block;
+        float: left;
+        width: calc(100% - 400px);
+        height: 100%;
+        overflow: hidden;
+        @include media(md) {
+          width: calc(100% - 240px);
+        }
+        @include media(sm) {
+          width: calc(100% - 40px);
+        }
+        .listResultCenterBottomBar {
+          display: block;
+          float: left;
+          width: 100%;
+          height: 100%;
+          .itemResultCenterBottomBar {
+            display: block;
+            float: left;
+            width: 200px;
+            height: 100%;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            padding: 5px 0;
+            .headResult {
+              display: block;
+              float: left;
+              width: 100%;
+              height: 60px;
+              padding: 0 10px;
+              .rowResult {
+                display: block;
+                float: left;
+                width: 100%;
+                height: 30px;
+                .logoTeam {
+                  display: block;
+                  float: left;
+                  width: 40px;
+                  height: 100%;
+                  padding: 5px 0;
+                  .iconTeam {
+                    display: block;
+                    width: auto;
+                    height: 100%;
+                    margin: 0 auto;
+                  }
+                }
+                .nameTeam {
+                  display: block;
+                  float: left;
+                  width: calc(100% - 80px);
+                  height: 100%;
+                  vertical-align: middle;
+                  .titleNameTeam {
+                    padding: 0 10px;
+                    line-height: 30px;
+                    font-size: 12px;
+                    font-weight: 600;
+                  }
+                }
+                .scoreTeam {
+                  display: block;
+                  float: left;
+                  width: 40px;
+                  height: 100%;
+                  text-align: center;
+                  .dataScoreTeam {
+                    padding: 0 10px;
+                    line-height: 30px;
+                    font-size: 12px;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+            .footerResult {
+              display: block;
+              float: left;
+              width: 100%;
+              height: 20px;
+              padding: 0 10px;
+              .rowDateResult {
+                display: block;
+                float: left;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                .dateResult {
+                  font-size: 10px;
+                  font-weight: 600;
+                  line-height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .rightBottomBar {
+        position: relative;
+        display: block;
+        float: left;
+        width: 200px;
+        height: 100%;
+        border-left: 2px solid #eee;
+        // border-right: 3px solid #bebebe;
+        @include media(md) {
+          width: 120px;
+        }
+        @include media(sm) {
+          width: 20px;
+        }
+        .moreBottomBar {
+          font-family: BigNoodleTitling;
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          line-height: 90px;
+          font-size: 30px;
+          letter-spacing: 1px;
+          text-align: center;
+          text-decoration: none;
+          @include media(md) {
+            font-size: 18px;
+          }
+          @include media(sm) {
+            transform: rotate(-90deg);
+            font-size: 12px;
+            line-height: 1.3;
+            display: none;
+          }
+          &:hover {
+            color: #00bd56;
+          }
+        }
+      }
+    }
+  }
 }

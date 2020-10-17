@@ -6,27 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateJourneysTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('journeys', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('journey')->unsigned();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('journeys', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->integer('journey')->unsigned();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('journeys');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('journeys');
+  }
 }

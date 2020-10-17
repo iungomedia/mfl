@@ -6,31 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTeamsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('teams', function (Blueprint $table) {
-            $table->bigIncrements('id');
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('teams', function (Blueprint $table) {
+      $table->bigIncrements('id');
 
-            $table->string('name')->unique();
-            $table->integer('id_contact')->unsigned();
-            $table->string('file', 128)->nulleable();
+      $table->string('name')->unique();
+      $table->integer('id_contact')->unsigned();
+      $table->string('file', 128)->nulleable();
 
-            $table->timestamps();
-        });
-    }
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('teams');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('teams');
+  }
 }

@@ -1,5 +1,5 @@
-$(function() {
-    if ($( "body" ).hasClass( "cheerleaderPage" )) {
-        var lightbox = GLightbox();
-    }
+$(function () {
+  if ($("body").hasClass("cheerleaderPage")) {
+    var lightbox = GLightbox();
+  }
 });

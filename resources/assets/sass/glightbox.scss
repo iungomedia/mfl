@@ -27,10 +27,10 @@
 }
 
 .glightbox-container .gslider {
-  -webkit-transition: -webkit-transform .4s ease;
-  transition: -webkit-transform .4s ease;
-  transition: transform .4s ease;
-  transition: transform .4s ease, -webkit-transform .4s ease;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   height: 100%;
   left: 0;
   top: 0;
@@ -69,7 +69,6 @@
   justify-content: center;
   opacity: 0;
 }
-
 
 /* top: 0;
         left: 0;
@@ -116,7 +115,7 @@
 }
 
 .glightbox-container .ginner-container.desc-bottom,
-        .glightbox-container .ginner-container.desc-top {
+.glightbox-container .ginner-container.desc-top {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -124,12 +123,12 @@
 }
 
 .glightbox-container .ginner-container.desc-left,
-        .glightbox-container .ginner-container.desc-right {
+.glightbox-container .ginner-container.desc-right {
   max-width: 100% !important;
 }
 
 .gslide iframe,
-    .gslide video {
+.gslide video {
   outline: none !important;
   border: none;
   min-height: 165px;
@@ -169,12 +168,12 @@
 }
 
 .desc-top .gslide-image img,
-        .desc-bottom .gslide-image img {
+.desc-bottom .gslide-image img {
   width: auto;
 }
 
 .desc-left .gslide-image img,
-        .desc-right .gslide-image img {
+.desc-right .gslide-image img {
   width: auto;
   max-width: 100%;
 }
@@ -201,12 +200,12 @@
 
 .gslide-video .gvideo-wrapper {
   width: 100%;
-        /* max-width: 160vmin; */
+  /* max-width: 160vmin; */
   margin: auto;
 }
 
 .gslide-video::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   width: 100%;
@@ -279,7 +278,7 @@
 }
 
 .desc-top .gslide-media,
-    .desc-bottom .gslide-media {
+.desc-bottom .gslide-media {
   margin: 0 auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -295,12 +294,12 @@
 }
 
 .gslide-description.description-left,
-    .gslide-description.description-right {
+.gslide-description.description-right {
   max-width: 100%;
 }
 
 .gslide-description.description-bottom,
-    .gslide-description.description-top {
+.gslide-description.description-top {
   margin: 0 auto;
   width: 100%;
 }
@@ -316,8 +315,6 @@
 .zoomed .gslide-description {
   display: none;
 }
-
-
 
 /*
  * Description for mobiles
@@ -338,10 +335,20 @@
   order: 2 !important;
   max-height: 78vh;
   overflow: auto !important;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, .75)));
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .75) 100%);
-  -webkit-transition: opacity .3s linear;
-  transition: opacity .3s linear;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.75))
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
   padding-bottom: 50px;
 }
 
@@ -369,13 +376,13 @@
 
 .glightbox-mobile .glightbox-container .gslide-desc .desc-more {
   color: #fff;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .gdesc-open .gslide-media {
-  -webkit-transition: opacity .5s ease;
-  transition: opacity .5s ease;
-  opacity: .4;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  opacity: 0.4;
 }
 
 .gdesc-open .gdesc-inner {
@@ -383,14 +390,14 @@
 }
 
 .gdesc-closed .gslide-media {
-  -webkit-transition: opacity .5s ease;
-  transition: opacity .5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   opacity: 1;
 }
 
 .greset {
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .gabsolute {
@@ -412,8 +419,8 @@
 .gloader {
   height: 25px;
   width: 25px;
-  -webkit-animation: lightboxLoader .8s infinite linear;
-  animation: lightboxLoader .8s infinite linear;
+  -webkit-animation: lightboxLoader 0.8s infinite linear;
+  animation: lightboxLoader 0.8s infinite linear;
   border: 2px solid #fff;
   border-right-color: transparent;
   border-radius: 50%;
@@ -464,7 +471,7 @@
 .gprev.disabled,
 .gnext.disabled,
 .gclose.disabled {
-  opacity: .1;
+  opacity: 0.1;
 }
 
 .gprev .garrow,
@@ -478,13 +485,10 @@ iframe.wait-autoplay {
 }
 
 .glightbox-closing .gnext,
-    .glightbox-closing .gprev,
-    .glightbox-closing .gclose {
+.glightbox-closing .gprev,
+.glightbox-closing .gclose {
   opacity: 0 !important;
 }
-
-
-
 
 /*Skin */
 
@@ -529,11 +533,11 @@ iframe.wait-autoplay {
     } */
 
 .glightbox-clean .gprev,
-    .glightbox-clean .gnext,
-    .glightbox-clean .gclose,
-    .glightbox-modern .gprev,
-    .glightbox-modern .gnext,
-    .glightbox-modern .gclose {
+.glightbox-clean .gnext,
+.glightbox-clean .gclose,
+.glightbox-modern .gprev,
+.glightbox-modern .gnext,
+.glightbox-modern .gclose {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
@@ -543,7 +547,7 @@ iframe.wait-autoplay {
 .glightbox-modern .gprev:hover,
 .glightbox-modern .gnext:hover,
 .glightbox-modern .gclose:hover {
-  background-color: rgba(0, 0, 0, 0.20);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .glightbox-clean .gprev path,
@@ -585,7 +589,7 @@ iframe.wait-autoplay {
   top: 15px;
   right: 10px;
   position: absolute;
-  opacity: .7;
+  opacity: 0.7;
   background-position: -59px 2px;
 }
 
@@ -599,49 +603,46 @@ iframe.wait-autoplay {
   opacity: 1;
 }
 
-
-
-
 /*CSS Animations*/
 
 .gfadeIn {
-  -webkit-animation: gfadeIn .5s ease;
-  animation: gfadeIn .5s ease;
+  -webkit-animation: gfadeIn 0.5s ease;
+  animation: gfadeIn 0.5s ease;
 }
 
 .gfadeOut {
-  -webkit-animation: gfadeOut .5s ease;
-  animation: gfadeOut .5s ease;
+  -webkit-animation: gfadeOut 0.5s ease;
+  animation: gfadeOut 0.5s ease;
 }
 
 .gslideOutLeft {
-  -webkit-animation: gslideOutLeft .3s ease;
-  animation: gslideOutLeft .3s ease;
+  -webkit-animation: gslideOutLeft 0.3s ease;
+  animation: gslideOutLeft 0.3s ease;
 }
 
 .gslideInLeft {
-  -webkit-animation: gslideInLeft .3s ease;
-  animation: gslideInLeft .3s ease;
+  -webkit-animation: gslideInLeft 0.3s ease;
+  animation: gslideInLeft 0.3s ease;
 }
 
 .gslideOutRight {
-  -webkit-animation: gslideOutRight .3s ease;
-  animation: gslideOutRight .3s ease;
+  -webkit-animation: gslideOutRight 0.3s ease;
+  animation: gslideOutRight 0.3s ease;
 }
 
 .gslideInRight {
-  -webkit-animation: gslideInRight .3s ease;
-  animation: gslideInRight .3s ease;
+  -webkit-animation: gslideInRight 0.3s ease;
+  animation: gslideInRight 0.3s ease;
 }
 
 .gzoomIn {
-  -webkit-animation: gzoomIn .5s ease;
-  animation: gzoomIn .5s ease;
+  -webkit-animation: gzoomIn 0.5s ease;
+  animation: gzoomIn 0.5s ease;
 }
 
 .gzoomOut {
-  -webkit-animation: gzoomOut .5s ease;
-  animation: gzoomOut .5s ease;
+  -webkit-animation: gzoomOut 0.5s ease;
+  animation: gzoomOut 0.5s ease;
 }
 
 @-webkit-keyframes lightboxLoader {
@@ -710,8 +711,8 @@ iframe.wait-autoplay {
   }
   to {
     visibility: visible;
-    -webkit-transform: translate3d( 0, 0, 0);
-    transform: translate3d( 0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
@@ -724,8 +725,8 @@ iframe.wait-autoplay {
   }
   to {
     visibility: visible;
-    -webkit-transform: translate3d( 0, 0, 0);
-    transform: translate3d( 0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
@@ -819,8 +820,8 @@ iframe.wait-autoplay {
 @-webkit-keyframes gzoomIn {
   from {
     opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   to {
     opacity: 1;
@@ -830,8 +831,8 @@ iframe.wait-autoplay {
 @keyframes gzoomIn {
   from {
     opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   to {
     opacity: 1;
@@ -844,8 +845,8 @@ iframe.wait-autoplay {
   }
   50% {
     opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   to {
     opacity: 0;
@@ -858,8 +859,8 @@ iframe.wait-autoplay {
   }
   50% {
     opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
   }
   to {
     opacity: 0;
@@ -881,7 +882,7 @@ iframe.wait-autoplay {
     order: 0;
   }
   .glightbox-container .ginner-container.desc-top .gslide-image,
-                .glightbox-container .ginner-container.desc-top .gslide-image img {
+  .glightbox-container .ginner-container.desc-top .gslide-image img {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
@@ -916,41 +917,41 @@ iframe.wait-autoplay {
     max-height: 100vh;
   }
   .gslide-description.description-left,
-    .gslide-description.description-right {
+  .gslide-description.description-right {
     max-width: 275px;
   }
   .glightbox-open {
     height: auto;
   }
   .goverlay {
-    background: rgba(0, 0, 0, .92);
+    background: rgba(0, 0, 0, 0.92);
   }
   .glightbox-clean .gslide-media,
-.glightbox-modern .gslide-media {
+  .glightbox-modern .gslide-media {
     -webkit-box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.65);
     box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.65);
   }
   .glightbox-clean .description-left .gdesc-inner,
-.glightbox-clean .description-right .gdesc-inner,
-.glightbox-modern .description-left .gdesc-inner,
-.glightbox-modern .description-right .gdesc-inner {
+  .glightbox-clean .description-right .gdesc-inner,
+  .glightbox-modern .description-left .gdesc-inner,
+  .glightbox-modern .description-right .gdesc-inner {
     position: absolute;
     height: 100%;
     overflow-y: auto;
   }
   .glightbox-clean .gprev,
-.glightbox-modern .gprev {
+  .glightbox-modern .gprev {
     top: 45%;
   }
   .glightbox-clean .gnext,
-.glightbox-modern .gnext {
+  .glightbox-modern .gnext {
     top: 45%;
   }
 }
 
 @media (min-width: 992px) {
   .glightbox-clean .gclose,
-.glightbox-modern .gclose {
+  .glightbox-modern .gclose {
     right: 20px;
   }
 }

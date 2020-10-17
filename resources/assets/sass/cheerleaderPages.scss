@@ -1,100 +1,100 @@
 .pagesCheerleader {
-	.containerFilters {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding: 20px;
-		@include media(md) {
-		    padding: 20px 20px 0 20px;
-		}
-		.titlePages {
-			font-family: BigNoodleTitling;
-			font-size:36px;
-			margin-bottom: 8px;
-		    font-weight: 500;
-		    line-height: 1.2;
-		    padding: 0 20px;
-		}
-		.formFilters {
-			position: relative;
-			display: block;
-			width: 100%;
-			.itemFilter {
-				position: relative;
-				display: block;
-				float: left;
-				width: 25%;
-				padding:10px 20px;
-			}
-		}
-	}
-	.containerCards {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding: 20px;
-		overflow: hidden;
-		@include media(md) {
-		    padding: 0px 20px 0 20px;
-		}
-		.listCardsResult {
-			position: relative;
-			display: block;
-			float: left;
-			width: 100%;
-			.itemCardsResult {
-				display: block;
-				float: left;
-				width: 33.3%;
-				padding: 15px;
-				@include media(md) {
-				    width: 50%;
-				}
-				@include media(sm) {
-				    width: 100%;
-				}
-				.linkCardsResult {
-					display: block;
-					width: 100%;
-					text-decoration: none;
-					&:hover {
-					  	transform: translate3D(0,-1px,0) scale(1.03);
-					}
-					.containCardsResult {
-						display: block;
-						width: 100%;
-						background-color: #fff;
-						border-radius: 10px;
-						overflow: hidden;
-						box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 7px 1px;
-						.imageCard {
-							display: block;
-							padding-top: 56.25%;
-							background-image: url('https://scontent.fmex7-1.fna.fbcdn.net/v/t1.0-9/538650_402591613129242_1011859163_n.jpg?_nc_cat=108&_nc_sid=6e5ad9&_nc_eui2=AeHRoafW5fLeVUvGehjZ0jfvb3K348lIM4NvcrfjyUgzg1yA3hI2zq5ekNDbZ53cJVA&_nc_ohc=Q8B0v8iSBusAX_Th0ul&_nc_ht=scontent.fmex7-1.fna&oh=fd0c63ecbd68d222706c4d8c2a6b760e&oe=5F39A845');
-							background-position: center;
-							background-size: cover;
-							background-repeat: no-repeat;
-						}
-						.captionCard {
-							display: block;
-							height: 60px;
-							padding: 10px 20px;
-							.textCaptionCard {
-								width: 100%;
-								text-align: center;
-								font-style: 14px;
-								line-height: 20px;
-								color: #000;
-								overflow: hidden;
-								display: -webkit-box;
-							   	-webkit-box-orient: vertical;
-							   	-webkit-line-clamp: 2;
-								text-overflow: ellipsis;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+  .containerFilters {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    @include media(md) {
+      padding: 20px 20px 0 20px;
+    }
+    .titlePages {
+      font-family: BigNoodleTitling;
+      font-size: 36px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      line-height: 1.2;
+      padding: 0 20px;
+    }
+    .formFilters {
+      position: relative;
+      display: block;
+      width: 100%;
+      .itemFilter {
+        position: relative;
+        display: block;
+        float: left;
+        width: 25%;
+        padding: 10px 20px;
+      }
+    }
+  }
+  .containerCards {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    @include media(md) {
+      padding: 0px 20px 0 20px;
+    }
+    .listCardsResult {
+      position: relative;
+      display: block;
+      float: left;
+      width: 100%;
+      .itemCardsResult {
+        display: block;
+        float: left;
+        width: 33.3%;
+        padding: 15px;
+        @include media(md) {
+          width: 50%;
+        }
+        @include media(sm) {
+          width: 100%;
+        }
+        .linkCardsResult {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+          &:hover {
+            transform: translate3D(0, -1px, 0) scale(1.03);
+          }
+          .containCardsResult {
+            display: block;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 7px 1px;
+            .imageCard {
+              display: block;
+              padding-top: 56.25%;
+              background-image: url("https://scontent.fmex7-1.fna.fbcdn.net/v/t1.0-9/538650_402591613129242_1011859163_n.jpg?_nc_cat=108&_nc_sid=6e5ad9&_nc_eui2=AeHRoafW5fLeVUvGehjZ0jfvb3K348lIM4NvcrfjyUgzg1yA3hI2zq5ekNDbZ53cJVA&_nc_ohc=Q8B0v8iSBusAX_Th0ul&_nc_ht=scontent.fmex7-1.fna&oh=fd0c63ecbd68d222706c4d8c2a6b760e&oe=5F39A845");
+              background-position: center;
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+            .captionCard {
+              display: block;
+              height: 60px;
+              padding: 10px 20px;
+              .textCaptionCard {
+                width: 100%;
+                text-align: center;
+                font-style: 14px;
+                line-height: 20px;
+                color: #000;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
