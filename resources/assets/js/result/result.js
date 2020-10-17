@@ -1,23 +1,25 @@
+"use strict";
+
 $(function () {
   if ($("body").hasClass("resultPage")) {
-    var mixer = mixitup(".listCardsResult");
+    let mixer = mixitup(".listCardsResult");
 
     $(".formFilters").submit(function (event) {
       event.preventDefault();
-      var cat = $("#idCategory option:selected")
+      let cat = $("#idCategory option:selected")
         .text()
         .toLowerCase()
         .replace(/ /g, "");
-      var team = $("#idTeam option:selected")
+      let team = $("#idTeam option:selected")
         .text()
         .toLowerCase()
         .replace(/ /g, "");
-      var journey = $("#idJourney option:selected")
+      let journey = $("#idJourney option:selected")
         .text()
         .toLowerCase()
         .replace(/ /g, "");
 
-      var filter = "";
+      let filter = "";
 
       if (cat != "todos") {
         filter = filter + "." + cat;

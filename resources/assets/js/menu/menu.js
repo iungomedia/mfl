@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $(".listResultCenterBottomBar").owlCarousel({
     margin: 0,
     loop: true,
@@ -6,14 +6,14 @@ $(document).ready(function () {
     items: 6,
     nav: false,
     dots: false,
-    autoplay: true,
+    autoplay: true
   });
 
-  $(".triggerNavbar").click(function () {
+  $(".triggerNavbar").click(function() {
     $(".mflNavbarCollapse").addClass("open");
   });
 
-  $(".closeMenuResponsive").click(function () {
+  $(".closeMenuResponsive").click(function() {
     $(".mflNavbarCollapse").removeClass("open");
   });
 });

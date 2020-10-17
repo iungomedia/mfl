@@ -1,6 +1,6 @@
 $(function () {
   if ($("body").hasClass("homePage")) {
-    var $slides = $(".supersliderHome");
+    let $slides = $(".supersliderHome");
 
     Hammer($slides[0]).on("swipeleft", function (e) {
       $slides.data("superslides").animate("next");
