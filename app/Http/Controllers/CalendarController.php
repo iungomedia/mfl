@@ -40,7 +40,7 @@ class CalendarController extends Controller
       'dates' => $dates,
       'teams' => $teams,
       'categories' => $categories,
-      'journeys' => $journeys,
+      'journeys' => $journeys
     ];
 
     return view('calendar')->with($data);
@@ -81,5 +81,12 @@ class CalendarController extends Controller
       'calendar_filter',
       compact('teams', 'categories', 'journeys', 'datesFiltered')
     );
+  }
+
+  public function filterCategory(string $category): string
+  {
+    $category = explode(" ", $category);
+    if (count($category) > 1) array_pop($category);
+    return implode("", $category);
   }
 }

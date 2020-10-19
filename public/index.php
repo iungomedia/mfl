@@ -1,4 +1,8 @@
 <?php
+
+ini_set("log_errors", 1);
+ini_set("error_log", "/home/alejandro/repositories/tl/mfl/storage/logs/laravel.log");
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

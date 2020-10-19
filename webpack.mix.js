@@ -14,7 +14,7 @@ mix
   .setPublicPath("./public/")
   .sass("resources/sass/app.scss", "public/css")
   .sass("resources/assets/sass/mflStyles.scss", "public/css")
-  .js("resources/js/app.js", "public/js")
+  .js("resources/js/app.js", "public/js/app.js")
   .scripts(
     [
       "resources/assets/js/tools/modernizr.js",
