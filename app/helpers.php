@@ -1,36 +1,59 @@
 <?php
 
-if (!function_exists('filterClassCategoriesForCalendar')) {
-  /**
-   * Ayuda a filtrar los nombres de las categorias
-   * dado que en la api se obtienen sin otra clasificación (que yo desconozco), pero es algo asi:
-   *
-   * Información desde la API de categorias a filtrar:
-   *
-   * Pewee
-   * Midget
-   *
-   * Clasificaciones de los equipos dentro de la información obtenida de calendario:
-   *
-   * Pewee 1A
-   * Pewee 1B
-   * Pewee 1C
-   *
-   * Midget 1A
-   * Midget 1B
-   * Midget 1C
-   *
-   * etc.
-   *
-   * Dado que el api rige porque filtrara se opta por eliminar estos ultimos elementos.
-   *
-   * @param string $category
-   * @return string
-   */
-  function filterCategoriesName(string $category): string
+if (!function_exists('buildCategoryForPositionPage')) {
+  function buildCategoryForPositionPage($category_id, $group)
   {
-    $category = explode(" ", $category);
-    if (count($category) > 1) array_pop($category);
-    return strtolower(implode("", $category));
+    return $category_id . '-' . $group;
+  }
+}
+
+if (!function_exists('filterCategories')) {
+  function filterCategories(array $categories, $by_category_id = false): array
+  {
+    $data = [];
+    $data_count = 0;
+    for ($i = 0, $categories_length = count($categories); $i < $categories_length; $i++) {
+      $category = &$categories[$i];
+      for ($j = 0, $groups_length = count($category->groups); $j < $groups_length; $j++) {
+        $group = &$category->groups[$j];
+        $new_category = &$data[$data_count];
+        $new_category = new stdClass();
+        if ($by_category_id) {
+          $new_category->idCategory = buildCategoryForPositionPage($category->idCategory, $group);
+        } else {
+          $new_category->idCategory = strtolower($category->category . $group);
+        }
+        $new_category->category = $category->category . " " . $group;
+        $data_count++;
+      }
+    }
+    return $data;
+  }
+}
+
+
+if (!function_exists('getRequest')) {
+  /**
+   * Este metodo ayuda hacer solicitudes de Tipo GET de forma en que la respuesta persiste
+   * @param string $link
+   * @param array $custom_config
+   * @return stdClass
+   */
+  function getRequest(string $link, array $custom_config = []): stdClass
+  {
+    // definiendo configuración por defecto
+    $config = array_replace([
+      'seconds' => 7200,
+      'assoc' => false,
+      'depth' => 512,
+      'options' => 0
+    ], $custom_config);
+
+    // se hace cache de la solicitud
+    return Illuminate\Support\Facades\Cache::remember($link, $config['seconds'], function () use ($link, $config) {
+      $client = new \GuzzleHttp\Client();
+      $get_results = $client->request('GET', $link)->getBody();
+      return json_decode($get_results, $config['assoc'], $config['depth'], $config['options']);
+    });
   }
 }

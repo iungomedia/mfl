@@ -34491,23 +34491,72 @@ if (typeof define === 'function' && define.amd) {
 
 })(window, document, 'Hammer');
 
-$(document).ready(function() {
-  $(".listResultCenterBottomBar").owlCarousel({
+const breakpoints = [
+  "--breakpoint-xs",
+  "--breakpoint-sm",
+  "--breakpoint-md",
+  "--breakpoint-lg",
+  "--breakpoint-xl",
+  "--breakpoint-xxl",
+  "--breakpoint-xxxl",
+  "--breakpoint-4xl"
+];
+
+function computeOwlItems(size, value) {
+  let buffer = size.split("-");
+  let current_size = buffer[buffer.length - 1];
+  if (current_size == "xs") return 2;
+  else if (current_size == "sm") return 2;
+  else if (current_size == "md") return 3;
+  else if (current_size == "lg") return 4;
+  else if(current_size == "xl") return 5;
+  else if(current_size == "xxl") return 6;
+  else if(current_size == "xxxl") return 7;
+  return 9;
+}
+
+function computeOwlResponsiveConfig() {
+  let responsive = {};
+  for (let i = breakpoints.length - 1; i >= 0; i--) {
+    let breakpoint = breakpoints[i];
+    let value = parseInt(getCssVarValue(breakpoint));
+    responsive[value] = { items: computeOwlItems(breakpoint, value) };
+  }
+  console.log(responsive);
+  return responsive;
+}
+
+function getCssVarValue(variable) {
+  return getComputedStyle(document.documentElement).getPropertyValue(variable);
+}
+
+function getOwlCarousel() {
+  return $(".listResultCenterBottomBar");
+}
+
+function initOwlCarousel() {
+  let owl_carousel = getOwlCarousel();
+  owl_carousel.owlCarousel({
     margin: 0,
     loop: true,
-    autoWidth: true,
-    items: 6,
     nav: false,
     dots: false,
-    autoplay: true
+    autoplay: true,
+    responsive: computeOwlResponsiveConfig()
   });
+}
+
+$(document).ready(function() {
+  initOwlCarousel();
 
   $(".triggerNavbar").click(function() {
     $(".mflNavbarCollapse").addClass("open");
+    document.querySelector("html").style.overflow = "hidden";
   });
 
   $(".closeMenuResponsive").click(function() {
     $(".mflNavbarCollapse").removeClass("open");
+    document.querySelector("html").style.overflow = "initial";
   });
 });
 
@@ -34537,90 +34586,25 @@ $(function () {
   if ($("body").hasClass("resultPage")) {
     let mixer = mixitup(".listCardsResult");
 
-    $(".formFilters").submit(function (event) {
-      event.preventDefault();
-      let cat = $("#idCategory option:selected")
+    function getText(id) {
+      return $(id)
         .text()
         .toLowerCase()
         .replace(/ /g, "");
-      let team = $("#idTeam option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-      let journey = $("#idJourney option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-
-      let filter = "";
-
-      if (cat != "todos") {
-        filter = filter + "." + cat;
-      }
-      if (team != "todos") {
-        filter = filter + "." + team;
-      }
-      if (journey != "todos") {
-        filter = filter + "." + journey;
-      }
-
-      if (filter == "") {
-        filter = "*";
-      }
-      console.log(filter);
-      mixer.filter(filter);
-    });
-  }
-});
-
-$(function () {
-  if ($("body").hasClass("calendarPage")) {
-    let mixer = mixitup(".listCardsResult");
-    let hash = location.hash;
-    init();
-
-    $(".formFilters").submit(function (event) {
-      event.preventDefault();
-      let cat = $("#idCategory option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-      let team = $("#idTeam option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-      let journey = $("#idJourney option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-
-      filters(cat, team, journey);
-    });
-
-    function init() {
-      if (hash != "") {
-        let teamHash = hash.split("-");
-        $("#idTeam option[value=" + teamHash[1] + "]").attr(
-          "selected",
-          "selected"
-        );
-        let cat = $("#idCategory option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        let team = $("#idTeam option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        let journey = $("#idJourney option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        filters(cat, team, journey);
-      }
     }
 
-    function filters(cat, team, journey) {
+    function getFormData() {
+      let cat = getText("#idCategory option:selected");
+      let team = getText("#idTeam option:selected");
+      let journey = getText("#idJourney option:selected");
+
+      return { cat, team, journey };
+    }
+
+    $(".formFilters").submit(function (event) {
+      event.preventDefault();
+      let { cat, team, journey } = getFormData();
+
       let filter = "";
 
       if (cat != "todos") filter = filter + "." + cat;
@@ -34628,9 +34612,52 @@ $(function () {
       if (journey != "todos") filter = filter + "." + journey;
       if (filter == "") filter = "*";
 
-      console.log(cat, team, journey, filter);
       mixer.filter(filter);
+    });
+  }
+});
+
+$(function() {
+  if ($("body").hasClass("calendarPage")) {
+    let container_id = ".listCardsResult";
+    let container = $(container_id);
+
+    let mixer = mixitup(container_id);
+
+    function getText(id) {
+      return $(id)
+        .text()
+        .toLowerCase()
+        .replace(/ /g, "");
     }
+
+    function getFormData() {
+      let cat = getText("#idCategory option:selected");
+      let team = getText("#idTeam option:selected");
+      let journey = getText("#idJourney option:selected");
+
+      return { cat, team, journey };
+    }
+
+    function filter() {
+      let { cat, team, journey } = getFormData();
+
+      let filter = "";
+
+      if (cat != "todos") filter = filter + "." + cat;
+      if (team != "todos") filter = filter + "." + team;
+      if (journey != "todos") filter = filter + "." + journey;
+      if (filter == "") filter = "*";
+
+      mixer.filter(filter).then(() => container.show());
+    }
+
+    $(".formFilters").submit(function(event) {
+      event.preventDefault();
+      filter();
+    });
+
+    filter();
   }
 });
 
@@ -34641,7 +34668,6 @@ $(function () {
     let Lon = parseFloat($(".mapContact").attr("data-lon"));
     initMap();
     function initMap() {
-      console.log(Lon);
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: Lat, lng: Lon },
         zoom: 12,

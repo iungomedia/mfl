@@ -3,90 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class CalendarController extends Controller
 {
+
+  private function get($team_id = null, $category_id = null, $journey_id = null)
+  {
+    $dates = getRequest("http://sistema.mfl.com.mx/api/v2/CalendarPage");
+
+    return [
+      'page' => 'calendarPage',
+      'games' => $dates->latestScores,
+      'dates' => $dates->data,
+      'teams' => collect($dates->filters->teams)->pluck('teamName', 'idTeam'),
+      'categories' => collect(filterCategories($dates->filters->categories))->pluck('category', 'idCategory'),
+      'journeys' => collect($dates->filters->journeys)->pluck('journey', 'idJourney'),
+      'team_id' => $team_id,
+      'category_id'=> $category_id,
+      'journey_id' => $journey_id
+    ];
+  }
+
   public function index()
   {
-    $client = new \GuzzleHttp\Client();
-    $getResults = $client
-      ->request(
-        'GET',
-        'http://sistema.mfl.com.mx/api/v1/ResultsPage?idTeam=XX&idCategory=XX&idJourney=XX'
-      )
-      ->getBody();
-    $getCalendar = $client
-      ->request('GET', 'http://sistema.mfl.com.mx/api/v1/CalendarPage')
-      ->getBody();
-    $getFilters = $client
-      ->request('GET', 'http://sistema.mfl.com.mx/api/v1/CalendarPageFilter')
-      ->getBody();
-
-    $filters = json_decode($getFilters, true);
-    $teams = collect($filters['teams'])->pluck('teamName', 'idTeam');
-    $categories = collect($filters['categories'])->pluck(
-      'category',
-      'idCategory'
-    );
-    $journeys = collect($filters['journeys'])->pluck('journey', 'idJourney');
-    $dates = json_decode($getCalendar);
-    $games = json_decode($getResults);
-
-    $data = [
-      'page' => 'calendarPage',
-      'games' => $games,
-      'dates' => $dates,
-      'teams' => $teams,
-      'categories' => $categories,
-      'journeys' => $journeys
-    ];
-
-    return view('calendar')->with($data);
+    return view('calendar')->with($this->get());
   }
 
-  public function useFilters(Request $request)
+  public function teamFilter($team_id = null)
   {
-    $idCategory = $request->idCategory;
-    $idTeam = $request->idTeam;
-    $idJourney = $request->idJourney;
-
-    $client = new \GuzzleHttp\Client();
-    $getCalendar = $client
-      ->request(
-        'GET',
-        'http://sistema.mfl.com.mx/api/v1/CalendarPage?idTeam=' .
-          $idTeam .
-          '&idCategory=' .
-          $idCategory .
-          '&idJourney=' .
-          $idJourney
-      )
-      ->getBody();
-    $getFilters = $client
-      ->request('GET', 'http://sistema.mfl.com.mx/api/v1/CalendarPageFilter')
-      ->getBody();
-
-    $filters = json_decode($getFilters, true);
-    $teams = collect($filters['teams'])->pluck('teamName', 'idTeam');
-    $categories = collect($filters['categories'])->pluck(
-      'category',
-      'idCategory'
-    );
-    $journeys = collect($filters['journeys'])->pluck('journey', 'idJourney');
-    $datesFiltered = json_decode($getCalendar);
-
-    return view(
-      'calendar_filter',
-      compact('teams', 'categories', 'journeys', 'datesFiltered')
-    );
+    return view('calendar', $this->get($team_id));
   }
 
-  public function filterCategory(string $category): string
+  public function calendarFilter($calendar_id = null)
   {
-    $category = explode(" ", $category);
-    if (count($category) > 1) array_pop($category);
-    return implode("", $category);
+    return view('calendar', $this->get(null, $calendar_id));
+  }
+
+  public function journeyFilter($journey_id = null)
+  {
+    return view('calendar', $this->get(null, null, $journey_id));
   }
 }

@@ -1,51 +1,28 @@
-$(function () {
+$(function() {
   if ($("body").hasClass("calendarPage")) {
-    let mixer = mixitup(".listCardsResult");
-    let hash = location.hash;
-    init();
+    let container_id = ".listCardsResult";
+    let container = $(container_id);
 
-    $(".formFilters").submit(function (event) {
-      event.preventDefault();
-      let cat = $("#idCategory option:selected")
+    let mixer = mixitup(container_id);
+
+    function getText(id) {
+      return $(id)
         .text()
         .toLowerCase()
         .replace(/ /g, "");
-      let team = $("#idTeam option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-      let journey = $("#idJourney option:selected")
-        .text()
-        .toLowerCase()
-        .replace(/ /g, "");
-
-      filters(cat, team, journey);
-    });
-
-    function init() {
-      if (hash != "") {
-        let teamHash = hash.split("-");
-        $("#idTeam option[value=" + teamHash[1] + "]").attr(
-          "selected",
-          "selected"
-        );
-        let cat = $("#idCategory option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        let team = $("#idTeam option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        let journey = $("#idJourney option:selected")
-          .text()
-          .toLowerCase()
-          .replace(/ /g, "");
-        filters(cat, team, journey);
-      }
     }
 
-    function filters(cat, team, journey) {
+    function getFormData() {
+      let cat = getText("#idCategory option:selected");
+      let team = getText("#idTeam option:selected");
+      let journey = getText("#idJourney option:selected");
+
+      return { cat, team, journey };
+    }
+
+    function filter() {
+      let { cat, team, journey } = getFormData();
+
       let filter = "";
 
       if (cat != "todos") filter = filter + "." + cat;
@@ -53,8 +30,14 @@ $(function () {
       if (journey != "todos") filter = filter + "." + journey;
       if (filter == "") filter = "*";
 
-      console.log(cat, team, journey, filter);
-      mixer.filter(filter);
+      mixer.filter(filter).then(() => container.show());
     }
+
+    $(".formFilters").submit(function(event) {
+      event.preventDefault();
+      filter();
+    });
+
+    filter();
   }
 });

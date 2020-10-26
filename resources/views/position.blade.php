@@ -9,11 +9,11 @@
       {!! csrf_field() !!}
       <div class="itemFilter">
         {{ Form::label('idCategory', 'CATEGORÍA', ['class' => 'font-weight-bold']) }}
-        {{ Form::select('idCategory', $categories, $cDefault, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
+        {{ Form::select('idCategory', $categories, $category, ['class' => 'form-control']) }}
       </div>
       <div class="itemFilter">
         {{ Form::label('idJourney', 'JORNADA', ['class' => 'font-weight-bold']) }}
-        {{ Form::select('idJourney', $journeys, $jDefault, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
+        {{ Form::select('idJourney', $journeys, $journey_id, ['class' => 'form-control']) }}
       </div>
       <div class="itemFilter">
         {{ Form::label('lbl_button', 'Filtros', ['style' => 'color:transparent;']) }}

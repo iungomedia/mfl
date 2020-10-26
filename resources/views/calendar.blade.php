@@ -7,15 +7,15 @@
     <form class="formFilters">
       <div class="itemFilter">
         {{ Form::label('idCategory', 'CATEGORÍA', ['class' => 'font-weight-bold']) }}
-        {{ Form::select('idCategory', $categories, null, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
+        {{ Form::select('idCategory', $categories, $category_id, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
       </div>
       <div class="itemFilter">
         {{ Form::label('idTeam', 'EQUIPO', ['class' => 'font-weight-bold']) }}
-        {{ Form::select('idTeam', $teams, null, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
+        {{ Form::select('idTeam', $teams, $team_id, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
       </div>
       <div class="itemFilter">
         {{ Form::label('idJourney', 'JORNADA', ['class' => 'font-weight-bold']) }}
-        {{ Form::select('idJourney', $journeys, null, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
+        {{ Form::select('idJourney', $journeys, $journey_id, ['class' => 'form-control', 'placeholder' => 'Todos']) }}
       </div>
       <div class="itemFilter">
         {{ Form::label('lbl_button', 'Filtros', ['style' => 'color:transparent;']) }}
@@ -24,13 +24,13 @@
     </form>
   </div>
   <div class="containerCards">
-    <div class="listCardsResult">
+    <div class="listCardsResult" style="display: none;">
       @foreach ($dates as $date)
-      <div class="mix itemCardsResult {{filterCategoriesName($date->category)}} {{strtolower(str_replace(' ','',$date->teamOne))}} {{strtolower(str_replace(' ','',$date->teamTwo))}} {{strtolower(str_replace(' ','',$date->journey))}}">
+      <div class="mix itemCardsResult {{strtolower(str_replace(' ','',$date->category).$date->group)}} {{strtolower(str_replace(' ','',$date->teamOne))}} {{strtolower(str_replace(' ','',$date->teamTwo))}} {{strtolower(str_replace(' ','',$date->journey))}}">
         <div class="containCardsResult">
           <div class="headResult">
             <div class="itemHeadResult">
-              <span class="categoryResult">{{ $date->category }}</span>
+              <span class="categoryResult">{{ $date->category }} {{$date->group}}</span>
             </div>
             <div class="itemHeadResult">
               <span class="journeyResult">{{ $date->journey }}</span>

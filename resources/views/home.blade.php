@@ -14,7 +14,7 @@
             MONTERREY FOOTBALL LEAGUE
         </h1>
         <p class="subtitleSuperSliderHome">
-            La Mejor Liga de Fútbol Americano Infantil y Juvenil de México
+            La mejor liga de fútbol americano infantil y juvenil de México
         </p>
     </div>
 </div>

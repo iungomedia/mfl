@@ -1,9 +1,3 @@
-// variables:
-$breakpoint-xs: 360px;
-$breakpoint-sm: 767px;
-$breakpoint-md: 1023px;
-$breakpoint-lg: 1360px;
-
 @mixin media($media) {
   @if $media == xs {
     @media (max-width: $breakpoint-xs) {
@@ -19,6 +13,22 @@ $breakpoint-lg: 1360px;
     }
   } @else if $media == lg {
     @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $media == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $media == xxl {
+    @media (max-width: $breakpoint-xxl) {
+      @content;
+    }
+  } @else if $media == xxxl {
+    @media (max-width: $breakpoint-xxxl) {
+      @content;
+    }
+  } @else if $media == xxxxl {
+    @media (max-width: $breakpoint-xxxxl) {
       @content;
     }
   }

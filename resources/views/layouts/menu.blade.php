@@ -1,9 +1,11 @@
 <nav class="mflNavbar">
   <div class="topBar">
     <div class="containerTopBar">
-      <a class="logo" href="/">
-        <img src="{{url('/images/logo.png')}}" class="imgLogo" alt="Monterrey Football League">
-      </a>
+      <div class="logo">
+        <a href="/">
+          <img src="{{url('/images/logo.png')}}" class="imgLogo" alt="Monterrey Football League">
+        </a>
+      </div>
 
       <div class="triggerNavbar">
         <span class="iconMenu icon-menu"></span>

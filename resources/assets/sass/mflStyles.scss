@@ -1,3 +1,5 @@
+// Variables
+@import "variables";
 @import "./tools/mixin";
 @import "./tools/reset";
 @import "./tools/icon";
@@ -18,7 +20,5 @@
 @import "./views/positionPages";
 @import "./views/contactPages";
 @import "./views/cheerleaderPages";
-// Variables
-@import "variables";
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";

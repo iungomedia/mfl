@@ -31,7 +31,8 @@
   @endif
   <!-- Scripts -->
   <script src="https://kit.fontawesome.com/c145db02c4.js" crossorigin="anonymous"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl9s-RiBJkr_PWLtr1_G7RoUOn36v-suU"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaZzCB6jzNUq-nHO11pBUoHUcRaZ0YBMA"></script>
   <script src="{{ mix('js/all.js') }}"></script>
 </body>
 
