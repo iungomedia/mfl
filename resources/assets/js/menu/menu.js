@@ -29,7 +29,6 @@ function computeOwlResponsiveConfig() {
     let value = parseInt(getCssVarValue(breakpoint));
     responsive[value] = { items: computeOwlItems(breakpoint, value) };
   }
-  console.log(responsive);
   return responsive;
 }
 

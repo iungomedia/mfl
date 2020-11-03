@@ -57,3 +57,25 @@ if (!function_exists('getRequest')) {
     });
   }
 }
+
+
+if (!function_exists('sortCheerlandersAssets')) {
+  function sortCheerlandersAssets(&$assets)
+  {
+    usort($assets, function ($a, $b) {
+      return strcmp($a->type, $b->type);
+    });
+  }
+}
+
+
+if(!function_exists('printJson')) {
+  function printJson($json) {
+    $type = gettype($json);
+    if ($type == "array") {
+      echo json_encode($json);
+    } else if($type == "string") {
+      echo $json;
+    }
+  }
+}

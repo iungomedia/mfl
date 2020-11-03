@@ -1,36 +1,34 @@
 @extends('layouts.mfl')
 
 @section('content')
+<script>
+  const teams = <?php printJson($teams); ?>;
+</script>
 <div class="pagesCheerleader containerMFL paddingTopPages">
   <div class="containerFilters">
     <h1 class="titlePages">Porristas MFL</h1>
   </div>
-  <div class="containerCards">
-    <div class="listCardsResult">
-      @foreach ($teams as $team)
-      <div class="mix itemCardsResult">
-        <a href="https://simplelightbox.com/img/full/04.jpg" class="linkCardsResult glightbox">
-          <div class="containCardsResult">
-            <div class="imageCard"></div>
-            <div class="captionCard">
-              <p class="textCaptionCard">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-            </div>
-          </div>
-        </a>
-        </a>
+  <div class="cheerlanders">
+    @foreach ($teams as $index => $team)
+    <div class="team" data-index="{{$index}}">
+      <div class="assets">
+        {{sortCheerlandersAssets($team->assets)}}
+        @foreach ($team->assets as $key => $asset)
+        @if ($asset->type == "image")
+        <div class="asset {{$asset->type}} {{$key == 0 ? '' : 'hidden'}}">
+          <img src="{{$asset->source}}" loading="lazy" alt="...">
+        </div>
+        @endif
+        @endforeach
       </div>
-      <div class="mix itemCardsResult">
-        <a href="https://biati-digital.github.io/glightbox/demo/pexels-video-1550080.mp4" class="linkCardsResult glightbox">
-          <div class="containCardsResult">
-            <div class="imageCard"></div>
-            <div class="captionCard">
-              <p class="textCaptionCard">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod consectetur adipisicing elit, sed do eiusmod< </p>
-            </div>
-          </div>
-        </a>
+      <div class="details">
+        <p class="title">{{$team->teamName}}</p>
+        <p class="slogan">{{$team->teamSlogan}}</p>
+        <img class="logo" src="{{$team->teamLogo}}" alt="team logo" loading="lazy">
       </div>
-      @endforeach
     </div>
+
+    @endforeach
   </div>
 </div>
 @endsection

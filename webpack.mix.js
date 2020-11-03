@@ -17,6 +17,7 @@ mix
   .js("resources/js/app.js", "public/js/app.js")
   .scripts(
     [
+      "resources/assets/js/tools/helpers.js",
       "resources/assets/js/tools/modernizr.js",
       "node_modules/jquery/dist/jquery.js",
       "resources/assets/js/tools/classie.js",
@@ -26,7 +27,6 @@ mix
       "node_modules/owl.carousel/dist/owl.carousel.js",
       "node_modules/glightbox/dist/js/glightbox.js",
       "node_modules/hammerjs/hammer.js",
-      // paginas
       "resources/assets/js/menu/menu.js",
       "resources/assets/js/home/home.js",
       "resources/assets/js/result/result.js",
