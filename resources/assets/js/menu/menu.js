@@ -16,9 +16,9 @@ function computeOwlItems(size, value) {
   else if (current_size == "sm") return 2;
   else if (current_size == "md") return 3;
   else if (current_size == "lg") return 4;
-  else if(current_size == "xl") return 5;
-  else if(current_size == "xxl") return 6;
-  else if(current_size == "xxxl") return 7;
+  else if (current_size == "xl") return 5;
+  else if (current_size == "xxl") return 6;
+  else if (current_size == "xxxl") return 7;
   return 9;
 }
 
@@ -37,7 +37,7 @@ function getCssVarValue(variable) {
 }
 
 function getOwlCarousel() {
-  return $(".listResultCenterBottomBar");
+  return $(".owl-carousel");
 }
 
 function initOwlCarousel() {
@@ -53,15 +53,20 @@ function initOwlCarousel() {
 }
 
 $(document).ready(function() {
+  let section_menu = $(".section-menu");
+  let nav_open = $(".action-nav a.open");
+  let nav_close = $(".action-nav a.close");
+  let body = $("body");
+
+  nav_open.click(() => {
+    body.css("overflow", "hidden");
+    section_menu.addClass("fullscreen");
+  });
+
+  nav_close.click(() => {
+    body.css("overflow", "inherit");
+    section_menu.removeClass("fullscreen");
+  });
+
   initOwlCarousel();
-
-  $(".triggerNavbar").click(function() {
-    $(".mflNavbarCollapse").addClass("open");
-    document.querySelector("html").style.overflow = "hidden";
-  });
-
-  $(".closeMenuResponsive").click(function() {
-    $(".mflNavbarCollapse").removeClass("open");
-    document.querySelector("html").style.overflow = "initial";
-  });
 });

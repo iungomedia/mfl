@@ -3,11 +3,11 @@
 @section('content')
 <div class="superslider supersliderHome">
     <div class="slides-container">
-        <img src="{{asset('/images/landing/Aguilas.jpg')}}">
-        <img src="{{asset('/images/landing/Avispones.jpg')}}">
-        <img src="{{asset('/images/landing/Halcones.jpg')}}">
-        <img src="{{asset('/images/landing/Potros.jpg')}}">
-        <img src="{{asset('/images/landing/Pumas.jpg')}}">
+        <img loading="lazy" src="{{asset('/images/landing/Aguilas.jpg')}}">
+        <img loading="lazy" src="{{asset('/images/landing/Avispones.jpg')}}">
+        <img loading="lazy" src="{{asset('/images/landing/Halcones.jpg')}}">
+        <img loading="lazy" src="{{asset('/images/landing/Potros.jpg')}}">
+        <img loading="lazy" src="{{asset('/images/landing/Pumas.jpg')}}">
     </div>
     <div class="superSliderCaption">
         <h1 class="titleSuperSliderHome">

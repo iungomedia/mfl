@@ -1,125 +1,45 @@
-<nav class="mflNavbar">
-  <div class="topBar">
-    <div class="containerTopBar">
-      <div class="logo">
-        <a href="/">
-          <img src="{{url('/images/logo.png')}}" class="imgLogo" alt="Monterrey Football League">
-        </a>
-      </div>
-
-      <div class="triggerNavbar">
-        <span class="iconMenu icon-menu"></span>
-      </div>
-
-      <div class="mflNavbarCollapse">
-        <a class="logoResponsive" href="/">
-          <img src="{{url('/images/logo.png')}}" class="imgLogo" alt="Monterrey Football League">
-        </a>
-        <div class="closeMenuResponsive">
-          <span class="iconClose icon-cancel"></span>
-        </div>
-        <!-- Left Side Of Navbar -->
-        <ul class="mflNavbarCollapseList">
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="/">
-              <span style="font-size:28px;">INICIO</span>
-            </a>
-          </li>
-
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="{{ route('calendario') }}">
-              <span style="font-size:28px;">CALENDARIO</span>
-            </a>
-          </li>
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="{{ route('resultados') }}">
-              <span style="font-size:28px;">RESULTADOS</span>
-            </a>
-          </li>
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="{{ route('posiciones') }}">
-              <span style="font-size:28px;">POSICIONES</span>
-            </a>
-          </li>
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="{{ route('equipos') }}">
-              <span style="font-size:28px;">EQUIPOS</span>
-            </a>
-          </li>
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="{{ route('porristas') }}">
-              <span style="font-size:28px;">PORRISTAS</span>
-            </a>
-          </li>
-          <li class="mflNavbarCollapseItem">
-            <a class="nmflNavbarCollapseLink" href="https://www.youtube.com/channel/UCUmdeEKUAW6mg7i4lS-GNrg" target="_blank">
-              <span style="font-size:28px;">MFL NETWORK</span>
-            </a>
-          </li>
-        </ul>
-
-        <!-- Right Side Of Navbar-->
-        <ul class="mflNavbarSocialList">
-          <li class="mflNavbarSocialItem">
-            <a class="mflNavbarSocialLink fab fa-facebook" target="_blank" href="https://www.facebook.com/somosMFL"></a>
-          </li>
-
-          <li class="mflNavbarSocialItem">
-            <a class="mflNavbarSocialLink fab fa-instagram" target="_blank" href="https://www.instagram.com/mfloficial"></a>
-          </li>
-
-          <li class="mflNavbarSocialItem">
-            <a class="mflNavbarSocialLink fab fa-twitter" target="_blank" href="https://twitter.com/OficialMfl"></a>
-          </li>
-        </ul>
-      </div>
+<nav class="mfl-navbar">
+  <div class="section-menu">
+    <div class="logo">
+      <a href="/">
+        <img src="{{url('/images/logo.png')}}" alt="Monterrey Football League">
+        <img class="tiny" src="{{url('/images/logo-tiny.png')}}" alt="Monterrey Football League" />
+      </a>
+    </div>
+    <div class="pages">
+      <a href="/">Inicio</a>
+      <a href="{{ route('calendario') }}">Calendario</a>
+      <a href="{{ route('resultados') }}">Resultados</a>
+      <a href="{{ route('posiciones') }}">Posiciones</a>
+      <a href="{{ route('equipos') }}">Equipos</a>
+      <a href="{{ route('porristas') }}">Porristas</a>
+    </div>
+    <div class="social-media">
+      <a class="fab fa-facebook" target="_blank" href="https://www.facebook.com/somosMFL" aria-hidden="true"></a>
+      <a class="fab fa-instagram" target="_blank" href="https://www.instagram.com/mfloficial" aria-hidden="true"></a>
+      <a class="fab fa-twitter" target="_blank" href="https://twitter.com/OficialMfl" aria-hidden="true"></a>
+      <a class="fab fa-youtube" target="_blank" href="https://www.youtube.com/channel/UCUmdeEKUAW6mg7i4lS-GNrg" aria-hidden="true"></a>
+    </div>
+    <div class="action-nav">
+      <a class="fas fa-bars open" href="#!" aria-hidden="true"></a>
+      <a class="fas fa-times close" href="#!" aria-hidden="true"></a>
     </div>
   </div>
-  <div class="bottomBar">
-    <div class="containerBottomBar">
-      <div class="leftBottomBar">
-        <span class="titleBottomBar">RESULTADOS</span>
-      </div>
-      <div class="centerBottomBar sliderResults">
-        <div class="listResultCenterBottomBar slides owl-carousel">
-          @foreach ($games as $game)
-          <div class="itemResultCenterBottomBar">
-            <div class="headResult">
-              <div class="rowResult">
-                <div class="logoTeam">
-                  <img class="iconTeam" src="data:image/png;base64, {{ $game->imgOne }}">
-                </div>
-                <div class="nameTeam">
-                  <span class="titleNameTeam">{{ $game->teamOne }}</span>
-                </div>
-                <div class="scoreTeam">
-                  <span class="dataScoreTeam">{{ $game->resultOne }}</span>
-                </div>
-              </div>
-              <div class="rowResult">
-                <div class="logoTeam">
-                  <img class="iconTeam" src="data:image/png;base64, {{ $game->imgTwo }}">
-                </div>
-                <div class="nameTeam">
-                  <span class="titleNameTeam">{{ $game->teamTwo }}</span>
-                </div>
-                <div class="scoreTeam">
-                  <span class="dataScoreTeam">{{ $game->resultTwo }}</span>
-                </div>
-              </div>
-            </div>
-            <div class="footerResult">
-              <div class="rowDateResult">
-                <span class="dateResult">{{ $game->date }}</span>
-              </div>
-            </div>
-          </div>
-          @endforeach
+  <div class="section-results">
+    <div class="result-title">Resultados</div>
+    <div class="results-data owl-carousel">
+    @foreach ($games as $game)
+        <div class="result-value">
+          <div class="team logo one"><img loading="lazy" src="data:image/png;base64, {{ $game->imgOne }}"></div>
+          <div class="team name one">{{ $game->teamOne }}</div>
+          <div class="team result one">{{ $game->resultOne }}</div>
+          <div class="team logo two"><img loading="lazy" src="data:image/png;base64, {{ $game->imgTwo }}"></div>
+          <div class="team name two">{{ $game->teamTwo }}</div>
+          <div class="team result two">{{ $game->resultTwo }}</div>
+          <div class="time-match">{{ $game->date }}</div>
         </div>
-      </div>
-      <div class="rightBottomBar">
-        <a class="moreBottomBar" href="{{ route('resultados') }}">VER TODOS</a>
-      </div>
+        @endforeach
     </div>
+    <div class="results-link"><a href="{{ route('resultados') }}">Ver todos</a></div>
   </div>
 </nav>

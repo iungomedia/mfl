@@ -24,7 +24,7 @@
       <div class="details">
         <p class="title">{{$team->teamName}}</p>
         <p class="slogan">{{$team->teamSlogan}}</p>
-        <img class="logo" src="{{$team->teamLogo}}" alt="team logo" loading="lazy">
+        <img class="logo" src="data:image/png;base64, {{$team->teamLogo}}" alt="team logo" loading="lazy">
       </div>
     </div>
 

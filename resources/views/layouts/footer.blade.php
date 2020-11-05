@@ -16,6 +16,9 @@
         <li class="itemSocialFooter">
           <a target="_blank" href="https://twitter.com/OficialMfl" class="linkSocialFooter"><span class="iconSocialFooter fab fa-twitter"></span></a>
         </li>
+        <li class="itemSocialFooter">
+          <a target="_blank" href="https://www.youtube.com/channel/UCUmdeEKUAW6mg7i4lS-GNrg" class="linkSocialFooter"><span class="iconSocialFooter fab fa-youtube"></span></a>
+        </li>
       </ul>
     </div>
     <div class="leyendFooter">

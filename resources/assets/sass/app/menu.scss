@@ -1,385 +1,254 @@
-.mflNavbar {
-  position: fixed;
-  width: 100%;
-  z-index: 10;
+$link-color-hover: #00bd56;
+$section-menu-height: 100px;
+$section-results-height: 90px;
+$nav-main-color: #022c67;
+
+nav.mfl-navbar {
+  display: grid;
+  grid-template-columns: minmax(100%, 100vw);
+  grid-template-rows: $section-menu-height $section-results-height;
+  user-select: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  .topBar {
-    position: relative;
-    display: block;
-    background-color: #033275;
-    height: 100px;
-    width: 100%;
-    .containerTopBar {
-      display: grid;
-      grid-template-columns: 350px 1fr 200px;
-      position: relative;
-      height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  .section-menu {
+    display: grid;
+    background-color: $nav-main-color;
+    grid-template-columns: min-content 1fr 200px;
+    grid-template-areas: "logo pages social-media";
+    padding: 0px 25px;
+    @include media(bg) {
+      grid-template-columns: min-content 1fr;
+      grid-template-areas: "logo action-nav";
+    }
+    div {
+      align-self: center;
+      justify-self: center;
+    }
+    &.fullscreen {
+      transition: width 2s, height 2s, transform 2s;
+      position: absolute;
+      z-index: 1000;
+      height: 100vh;
       width: 100%;
-      // max-width: 1200px;
-      margin: 0 auto;
-      .logo {
-        z-index: 2;
-        position: absolute;
-        top: 50%;
-        left: 30px;
-        transform: translateY(-50%);
-        .imgLogo {
-          position: relative;
-          display: block;
-          width: auto;
-          height: 50px;
-          @include media(md) {
-            height: 45px;
-          }
-        }
-      }
-      .triggerNavbar {
-        display: none;
-        position: absolute;
-        top: 50%;
-        right: 30px;
-        transform: translateY(-50%);
-        width: 50px;
-        height: 50px;
-        text-align: center;
-        @include media(sm) {
-          display: block;
-        }
-        .iconMenu {
-          font-size: 40px;
-          color: #fff;
-          line-height: 50px;
-        }
-      }
-      .mflNavbarCollapse {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        @include media(sm) {
-          position: fixed;
-          opacity: 0;
-          visibility: hidden;
-          position: fixed;
-          top: -100%;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background-color: #033275;
-          z-index: 20;
-          padding: 120px 0 50px 0;
+      grid-template-columns: min-content 1fr;
+      grid-template-rows: $section-menu-height 1fr min-content;
+      grid-template-areas: "logo action-nav" "pages pages" "social-media social-media";
+      .action-nav {
+        display: inline;
+        a {
           &.open {
-            top: 0;
-            opacity: 1;
-            visibility: visible;
-            transition: all 0.5s ease-in-out;
+            display: none;
+          }
+          &.close {
+            display: inline;
           }
         }
-        .logoResponsive {
+      }
+      .pages {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        text-align: center;
+        align-self: flex-start;
+        a {
+          padding: 10px;
+          &:first-child {
+            padding: 20px 0px 10px 0px;
+          }
+          &:last-child {
+            padding: 10px 0px 0px 0px;
+          }
+        }
+      }
+      .social-media {
+        display: inline;
+        text-align: center;
+      }
+    }
+    .logo {
+      grid-area: logo;
+      img:not(.tiny) {
+        display: inline;
+        @include media(xl) {
           display: none;
-          z-index: 2;
-          position: absolute;
-          top: 50px;
-          left: 30px;
-          transform: translateY(-50%);
-          @include media(sm) {
-            display: block;
-          }
-          .imgLogo {
-            position: relative;
-            display: block;
-            width: auto;
-            height: 50px;
-            @include media(md) {
-              height: 45px;
-            }
-          }
         }
-        .closeMenuResponsive {
+        @include media(lg) {
+          display: inline;
+        }
+        @include media(xs) {
           display: none;
-          position: absolute;
-          top: 50px;
-          right: 30px;
-          transform: translateY(-50%);
-          width: 50px;
-          height: 50px;
-          text-align: center;
-          @include media(sm) {
-            display: block;
-          }
-          .iconClose {
-            font-size: 40px;
-            color: #fff;
-            line-height: 50px;
-          }
         }
-        .mflNavbarCollapseList {
-          position: relative;
-          display: block;
-          float: left;
-          margin: 0 0 0 270px;
-          width: calc(100% - 470px);
-          height: 100%;
-          // height: calc(100% - 100px);
-          text-align: center;
-          @include media(md) {
-            margin: 0 0 0 220px;
-            width: calc(100% - 380px);
-          }
-          @include media(sm) {
-            position: relative;
-            display: block;
-            height: auto;
-            width: 100%;
-            margin: 0;
-            text-align: center;
-          }
-          .mflNavbarCollapseItem {
-            display: inline-block;
-            height: 100%;
-            @include media(sm) {
-              display: block;
-              margin: 20px 0;
-              height: auto;
-              width: auto;
-            }
-            .nmflNavbarCollapseLink {
-              display: inline-block;
-              height: 100%;
-              line-height: 100px;
-              padding: 0 15px;
-              color: #fff;
-              text-decoration: none;
-              font-family: BigNoodleTitling;
-              font-size: 28px;
-              letter-spacing: 1px;
-              @include media(md) {
-                font-size: 28px;
-                padding: 0 7px;
-              }
-              @include media(sm) {
-                font-size: 20px;
-                padding: 0 7px;
-                line-height: 1.3;
-              }
-              span {
-                font-family: BigNoodleTitling;
-                font-size: 28px;
-              }
-              &:hover {
-                color: #00bd56;
-                span {
-                  border-bottom: 2px solid #00bd56;
-                  font-family: BigNoodleTitling;
-                }
-              }
-            }
-          }
+      }
+      img.tiny {
+        display: none;
+        @include media(xl) {
+          display: inline;
         }
-        .mflNavbarSocialList {
-          position: relative;
-          display: block;
-          float: left;
-          width: 200px;
-          height: 100%;
-          text-align: center;
-          @include media(md) {
-            width: 160px;
-          }
-          @include media(sm) {
-            position: relative;
-            display: block;
-            height: auto;
-            width: 100%;
-            margin: 0 auto;
-          }
-          .mflNavbarSocialItem {
-            display: inline-block;
-            height: 100%;
-            .mflNavbarSocialLink {
-              display: inline-block;
-              height: 100%;
-              line-height: 100px;
-              padding: 0 8px;
-              color: #fff;
-              text-decoration: none;
-              font-size: 30px;
-              &:hover {
-                color: #00bd56;
-              }
-            }
-          }
+        @include media(lg) {
+          display: none;
+        }
+        @include media(xs) {
+          display: inline;
+        }
+      }
+    }
+    .pages {
+      grid-area: pages;
+      @include media(lg) {
+        display: none;
+      }
+      a {
+        padding: 0px 15px;
+        color: white;
+        font-family: BigNoodleTitling;
+        text-transform: uppercase;
+        font-size: 28px;
+        text-decoration: none;
+        &:hover {
+          color: $link-color-hover;
+          text-decoration: underline;
+        }
+        @include media(xl) {
+          padding: 0px 10px;
+        }
+      }
+    }
+    .social-media {
+      grid-area: social-media;
+      width: 100%;
+      @include media(lg) {
+        display: none;
+      }
+      a {
+        height: 100%;
+        line-height: 100px;
+        padding: 0 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 30px;
+        &:hover {
+          color: $link-color-hover;
+        }
+      }
+    }
+    .action-nav {
+      grid-area: action-nav;
+      display: none;
+      justify-self: end;
+      @include media(lg) {
+        display: inline;
+      }
+      a {
+        height: 100%;
+        line-height: 100px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 30px !important;
+        &:hover {
+          color: $link-color-hover;
+        }
+        &.close {
+          display: none;
         }
       }
     }
   }
-  .bottomBar {
-    position: relative;
-    display: block;
-    margin: 0;
-    background-color: #fff;
-    height: 90px;
-    .containerBottomBar {
+  .section-results {
+    display: grid;
+    width: 100%;
+    background-color: white;
+    grid-template-columns: min-content 1fr min-content;
+    .result-title {
+      padding: 0px 20px;
       display: grid;
-      grid-template-columns: 200px 1fr 200px;
-      @include media(lg) {
-        grid-template-columns: 150px 1fr 150px;
-      }
-      @include media(md) {
-        grid-template-columns: 100px 1fr 100px;
-      }
-      @include media(sm) {
-        grid-template-columns: 0px 1fr 20px;
-      }
-      height: 100%;
+      align-content: center;
+      font-family: BigNoodleTitling;
+      line-height: 90px;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .results-data {
+      display: grid;
       width: 100%;
-      margin: 0 auto;
-      .leftBottomBar {
-        height: 100%;
-        border-left: 3px solid #bebebe;
-        border-right: 2px solid #eee;
-        .titleBottomBar {
-          font-family: BigNoodleTitling;
-          display: inline-block;
-          height: 100%;
-          width: 100%;
-          line-height: 90px;
-          font-size: 20px;
-          letter-spacing: 1px;
-          text-align: center;
-          @include media(md) {
-            font-size: 18px;
-          }
-          @include media(sm) {
-            transform: rotate(-90deg);
-            font-size: 12px;
-            display: none;
-          }
-        }
-      }
-      .centerBottomBar {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        .listResultCenterBottomBar {
-          display: grid;
-          height: 100%;
-          .itemResultCenterBottomBar {
-            display: block;
-            float: left;
-            width: 100%;
-            height: 100%;
-            border-left: 1px solid #eee;
-            border-right: 1px solid #eee;
-            padding: 5px 0;
-            .headResult {
-              display: block;
-              float: left;
-              width: 100%;
-              height: 60px;
-              padding: 0 10px;
-              .rowResult {
-                display: block;
-                float: left;
-                width: 100%;
-                height: 30px;
-                .logoTeam {
-                  display: block;
-                  float: left;
-                  width: 40px;
-                  height: 100%;
-                  padding: 5px 0;
-                  .iconTeam {
-                    display: block;
-                    width: auto;
-                    height: 100%;
-                    max-height: 98%;
-                    max-width: 98%;
-                    margin: 0 auto;
-                    object-fit: cover;
-                    object-position: center;
-                  }
-                }
-                .nameTeam {
-                  display: block;
-                  float: left;
-                  width: calc(100% - 80px);
-                  height: 100%;
-                  vertical-align: middle;
-                  .titleNameTeam {
-                    padding: 0 10px;
-                    line-height: 30px;
-                    font-size: 12px;
-                    font-weight: 600;
-                  }
-                }
-                .scoreTeam {
-                  display: block;
-                  float: left;
-                  width: 40px;
-                  height: 100%;
-                  text-align: center;
-                  .dataScoreTeam {
-                    padding: 0 10px;
-                    line-height: 30px;
-                    font-size: 12px;
-                    font-weight: 600;
-                  }
-                }
-              }
-            }
-            .footerResult {
-              display: block;
-              float: left;
-              width: 100%;
-              height: 20px;
-              padding: 0 10px;
-              .rowDateResult {
-                display: block;
-                float: left;
-                width: 100%;
-                height: 100%;
-                text-align: center;
-                .dateResult {
-                  font-size: 10px;
-                  font-weight: 600;
-                  line-height: 20px;
-                }
-              }
-            }
-          }
-        }
-      }
-      .rightBottomBar {
-        position: relative;
-        display: block;
-        float: left;
-        width: 200px;
-        height: 100%;
+      overflow: hidden;
+      .result-value {
+        display: grid;
+        grid-template-columns: repeat(3, min-content);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "team-one-logo team-one-name team-one-result" "team-two-logo team-two-name team-two-result" "time-match time-match time-match";
+        padding: 5px 0;
         border-left: 2px solid #eee;
-        .moreBottomBar {
-          color: #212529;
-          font-family: BigNoodleTitling;
-          display: inline-block;
-          height: 100%;
-          width: 100%;
-          line-height: 90px;
-          font-size: 30px;
-          letter-spacing: 1px;
-          text-align: center;
-          text-decoration: none;
-          @include media(md) {
-            font-size: 18px;
-          }
-          @include media(sm) {
-            transform: rotate(-90deg);
+        justify-content: center;
+        .team {
+          &:not(.logo) {
+            padding: 0 10px;
+            line-height: 30px;
             font-size: 12px;
-            line-height: 1.3;
+            font-weight: 600;
           }
-          &:hover {
-            color: #00bd56;
+          &.logo {
+            width: 100%;
+            height: 30px;
+            padding: 5px 0;
+            img {
+              object-fit: contain;
+              object-position: center;
+              width: 40px;
+              height: 100%;
+            }
+            &.one {
+              grid-area: team-one-logo;
+            }
+            &.two {
+              grid-area: team-two-logo;
+            }
           }
+          &.name {
+            &.one {
+              grid-area: team-one-name;
+            }
+            &.two {
+              grid-area: team-two-name;
+            }
+          }
+          &.result {
+            &.one {
+              grid-area: team-one-result;
+            }
+            &.two {
+              grid-area: team-two-result;
+            }
+          }
+        }
+        .time-match {
+          grid-area: time-match;
+          font-size: 10px;
+          font-weight: 600;
+          line-height: 20px;
+          text-align: center;
+        }
+      }
+    }
+    .results-link {
+      display: grid;
+      align-content: center;
+      border-left: 2px solid #eee;
+      padding: 0px 20px;
+      a {
+        white-space: nowrap;
+        color: #212529;
+        font-family: BigNoodleTitling;
+        line-height: 90px;
+        font-size: 30px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+          color: $link-color-hover;
         }
       }
     }

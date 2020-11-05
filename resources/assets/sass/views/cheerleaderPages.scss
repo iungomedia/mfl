@@ -3,7 +3,7 @@
     position: relative;
     display: block;
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
     @include media(md) {
       padding: 20px 20px 0 20px;
     }
