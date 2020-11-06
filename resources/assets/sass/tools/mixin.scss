@@ -1,25 +1,3 @@
-$breakpoint-xs: 375px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-bg: 1023px;
-$breakpoint-xl: 1200px;
-$breakpoint-xxl: 1600px;
-$breakpoint-xxxl: 1920px;
-$breakpoint-xxxxl: 2160px;
-
-$grid-breakpoints: (
-  xs: $breakpoint-xs,
-  sm: $breakpoint-sm,
-  md: $breakpoint-md,
-  lg: $breakpoint-lg,
-  bg: $breakpoint-bg,
-  xl: $breakpoint-xl,
-  xxl: $breakpoint-xxl,
-  xxxl: $breakpoint-xxxl,
-  4xl: $breakpoint-xxxxl,
-) !default;
-
 @mixin media($media) {
   @if $media == xs {
     @media (max-width: $breakpoint-xs) {

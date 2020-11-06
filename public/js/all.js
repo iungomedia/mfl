@@ -34509,18 +34509,19 @@ const breakpoints = [
 function computeOwlItems(size, value) {
   let buffer = size.split("-");
   let current_size = buffer[buffer.length - 1];
-  if (current_size == "xs") return 2;
+  if (current_size == "xs") return 1;
   else if (current_size == "sm") return 2;
   else if (current_size == "md") return 3;
   else if (current_size == "lg") return 4;
   else if (current_size == "xl") return 5;
   else if (current_size == "xxl") return 6;
   else if (current_size == "xxxl") return 7;
-  return 9;
+  else if (current_size == "4xl") return 9;
+  return 1;
 }
 
 function computeOwlResponsiveConfig() {
-  let responsive = {};
+  let responsive = { 0: { items: 1 } };
   for (let i = breakpoints.length - 1; i >= 0; i--) {
     let breakpoint = breakpoints[i];
     let value = parseInt(getCssVarValue(breakpoint));

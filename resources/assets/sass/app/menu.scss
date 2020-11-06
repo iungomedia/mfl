@@ -161,18 +161,28 @@ nav.mfl-navbar {
     width: 100%;
     background-color: white;
     grid-template-columns: min-content 1fr min-content;
+    grid-template-areas: "result-title results-data results-link";
+    @include media(bg) {
+      grid-template-columns: 1fr min-content;
+      grid-template-areas: "results-data results-link";
+    }
     .result-title {
-      padding: 0px 20px;
       display: grid;
+      grid-area: result-title;
+      padding: 0px 20px;
       align-content: center;
       font-family: BigNoodleTitling;
       line-height: 90px;
       font-size: 20px;
       letter-spacing: 1px;
       text-align: center;
+      @include media(bg) {
+        display: none;
+      }
     }
     .results-data {
       display: grid;
+      grid-area: results-data;
       width: 100%;
       overflow: hidden;
       .result-value {
@@ -235,9 +245,13 @@ nav.mfl-navbar {
     }
     .results-link {
       display: grid;
+      grid-area: results-link;
       align-content: center;
       border-left: 2px solid #eee;
       padding: 0px 20px;
+      @include media(bg) {
+        padding: 0px;
+      }
       a {
         white-space: nowrap;
         color: #212529;
@@ -249,6 +263,13 @@ nav.mfl-navbar {
         text-decoration: none;
         &:hover {
           color: $link-color-hover;
+        }
+        @include media(bg) {
+          font-size: 20px;
+          writing-mode: vertical-rl;
+          transform: scale(1);
+          line-height: 30px;
+          max-width: 30px;
         }
       }
     }

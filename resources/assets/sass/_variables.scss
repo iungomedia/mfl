@@ -18,10 +18,11 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-$breakpoint-xs: 0px;
-$breakpoint-sm: 576px;
+$breakpoint-xs: 375px;
+$breakpoint-sm: 500px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
+$breakpoint-bg: 1023px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1600px;
 $breakpoint-xxxl: 1920px;
@@ -32,8 +33,9 @@ $grid-breakpoints: (
   sm: $breakpoint-sm,
   md: $breakpoint-md,
   lg: $breakpoint-lg,
+  bg: $breakpoint-bg,
   xl: $breakpoint-xl,
   xxl: $breakpoint-xxl,
   xxxl: $breakpoint-xxxl,
-  4xl: $breakpoint-xxxxl
+  4xl: $breakpoint-xxxxl,
 ) !default;
