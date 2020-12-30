@@ -1,0 +1,4 @@
+!public/js/*.js
+!public/css/*.css
+!public/css/fonts/*.*
+!public/images/fonts/*.*

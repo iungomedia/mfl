@@ -31,7 +31,6 @@ if (!function_exists('filterCategories')) {
   }
 }
 
-
 if (!function_exists('getRequest')) {
   /**
    * Este metodo ayuda hacer solicitudes de Tipo GET de forma en que la respuesta persiste
@@ -58,24 +57,70 @@ if (!function_exists('getRequest')) {
   }
 }
 
-
-if (!function_exists('sortCheerlandersAssets')) {
-  function sortCheerlandersAssets(&$assets)
+if (!function_exists('parseCheerlanderThumbnail')) {
+  function parseCheerlanderThumbnail($source)
   {
-    usort($assets, function ($a, $b) {
-      return strcmp($a->type, $b->type);
-    });
+    try {
+      if (preg_match("/youtube.com/", $source)) {
+        $parts = explode("v=", $source);
+        $video_id = $parts[1];
+        return "https://img.youtube.com/vi/$video_id/hqdefault.jpg";
+      }
+      return str_replace("http:", "", $source);
+    } catch (Exception $error) {
+      error_log($error->getMessage());
+    }
+  }
+}
+
+if (!function_exists('isUrlImage')) {
+  function isUrlImage($source)
+  {
+    $source_url = parseCheerlanderThumbnail($source);
+    return preg_match("/\.(?:jpg|png|gif|jpeg)/", $source_url);
+  }
+}
+
+if (!function_exists('printJson')) {
+  function printJson($json)
+  {
+    $type = gettype($json);
+    if ($type == "array") {
+      echo json_encode($json);
+    } else if ($type == "string") {
+      echo $json;
+    }
   }
 }
 
 
-if(!function_exists('printJson')) {
-  function printJson($json) {
-    $type = gettype($json);
-    if ($type == "array") {
-      echo json_encode($json);
-    } else if($type == "string") {
-      echo $json;
+if (!function_exists('hex2rgba')) {
+  function hex2rgba($color, $opacity = 1.0)
+  {
+    $default = 'rgb(0,0,0)';
+
+    if (empty($color)) {
+      return $default;
     }
+
+    if ($color[0] == '#') {
+      $color = substr($color, 1);
+    }
+
+    if (strlen($color) == 6) {
+      $hex = array($color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]);
+    } elseif (strlen($color) == 3) {
+      $hex = array($color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]);
+    } else {
+      return $default;
+    }
+
+    $rgb = array_map('hexdec', $hex);
+
+    if ($opacity > 1.0) {
+      $opacity = 1.0;
+    }
+
+    return 'rgba(' . implode(",", $rgb) . ',' . $opacity . ')';
   }
 }

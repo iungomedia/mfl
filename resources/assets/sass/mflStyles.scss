@@ -9,11 +9,12 @@
 @import "../../../node_modules/owl.carousel/src/scss/_core.scss";
 @import "../../../node_modules/owl.carousel/src/scss/_theme.default.scss";
 @import "../../../node_modules/owl.carousel/src/scss/_theme.scss";
-@import "../../../node_modules/glightbox/dist/css/glightbox.css";
+@import "../../../node_modules/@staaky/fresco/src/css/fresco.css";
 
 @import "./app/general";
 @import "./app/menu";
 @import "./app/footer";
+@import "./app/fresco";
 @import "./views/home";
 @import "./views/resultPages";
 @import "./views/calendarPages";

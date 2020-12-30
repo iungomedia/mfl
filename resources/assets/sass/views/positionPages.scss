@@ -68,10 +68,9 @@
                   text-align: center;
                   .iconTeam {
                     display: inline-block;
-                    height: 30px;
-                    @include media(sm) {
-                      height: 20px;
-                    }
+                    height: 100%;
+                    max-height: 20px;
+                    max-width: 40px;
                   }
                 }
                 .nameTeam {

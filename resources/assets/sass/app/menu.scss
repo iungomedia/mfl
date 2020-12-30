@@ -193,12 +193,18 @@ nav.mfl-navbar {
         padding: 5px 0;
         border-left: 2px solid #eee;
         justify-content: center;
+        @include media(xs) {
+          border-left: 1px solid #eee;
+        }
         .team {
           &:not(.logo) {
             padding: 0 10px;
-            line-height: 30px;
+            line-height: 20px;
             font-size: 12px;
             font-weight: 600;
+            @include media(xs) {
+              font-size: 10px;
+            }
           }
           &.logo {
             width: 100%;
@@ -208,6 +214,9 @@ nav.mfl-navbar {
               object-fit: contain;
               object-position: center;
               width: 40px;
+              @include media(xs) {
+                width: 30px;
+              }
               height: 100%;
             }
             &.one {

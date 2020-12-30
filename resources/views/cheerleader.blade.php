@@ -12,13 +12,14 @@
     @foreach ($teams as $index => $team)
     <div class="team" data-index="{{$index}}">
       <div class="assets">
-        {{sortCheerlandersAssets($team->assets)}}
+        @php $index = 0 @endphp
         @foreach ($team->assets as $key => $asset)
-        @if ($asset->type == "image")
-        <div class="asset {{$asset->type}} {{$key == 0 ? '' : 'hidden'}}">
-          <img src="{{$asset->source}}" loading="lazy" alt="...">
-        </div>
-        @endif
+          @if (isUrlImage($asset->source))
+            <div class="asset {{$asset->type}} {{$index == 0 ? '' : 'hidden'}}">
+              <img src="{{parseCheerlanderThumbnail($asset->source)}}" loading="lazy" alt="...">
+            </div>
+            @php $index++ @endphp
+          @endif
         @endforeach
       </div>
       <div class="details">

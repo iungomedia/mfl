@@ -17,6 +17,7 @@ mix
   .js("resources/js/app.js", "public/js/app.js")
   .scripts(
     [
+      "node_modules/lodash/lodash.js",
       "resources/assets/js/tools/helpers.js",
       "resources/assets/js/tools/modernizr.js",
       "node_modules/jquery/dist/jquery.js",
@@ -25,7 +26,7 @@ mix
       "resources/assets/js/tools/superdlider.js",
       "node_modules/mixitup/dist/mixitup.js",
       "node_modules/owl.carousel/dist/owl.carousel.js",
-      "node_modules/glightbox/dist/js/glightbox.js",
+      "node_modules/@staaky/fresco/dist/js/fresco.min.js",
       "node_modules/hammerjs/hammer.js",
       "resources/assets/js/menu/menu.js",
       "resources/assets/js/home/home.js",
