@@ -1,9 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
+
+Route::match(['get', 'post'], 'login', function(){
+  return redirect('/');
+});
 
 Route::get('/', 'HomeController@index');
 
@@ -20,3 +25,7 @@ Route::get('/calendario/jornada/{journey_id}', 'CalendarController@journeyFilter
 
 Route::post('resultados/filtro', 'ResultController@useFilters')->name('resultados/filtro');
 Route::post('posiciones/filtro', 'PositionController@useFilters')->name('posiciones/filtro');
+
+Route::get('/refresh', function() {
+  Artisan::call('cron:refresh-cache');
+});
