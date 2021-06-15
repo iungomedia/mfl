@@ -36,7 +36,7 @@
           <div class="team logo two"><img loading="lazy" src="data:image/png;base64, {{ $game->imgTwo }}"></div>
           <div class="team name two">{{ $game->teamTwo }}</div>
           <div class="team result two">{{ $game->resultTwo }}</div>
-          <div class="time-match">{{ $game->date }}</div>
+          <div class="time-match">{{ $game->date ? $game->date : 'Fecha por definir' }}</div>
         </div>
         @endforeach
     </div>
