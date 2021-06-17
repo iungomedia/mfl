@@ -41,6 +41,13 @@ class PositionController extends Controller
     $data = new stdClass();
     $data->category_id = $category[0] ?? '';
     $data->group_id = $category[1] ?? '';
+
+    $subgroup =  $category[2] ?? '';
+
+    if($subgroup) {
+      $data->group_id .= "-$subgroup";
+    }
+
     return $data;
   }
 

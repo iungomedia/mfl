@@ -227,6 +227,7 @@ nav.mfl-navbar {
             }
           }
           &.name {
+            white-space: nowrap;
             &.one {
               grid-area: team-one-name;
             }
@@ -249,6 +250,7 @@ nav.mfl-navbar {
           font-weight: 600;
           line-height: 20px;
           text-align: center;
+          text-transform: capitalize;
         }
       }
     }

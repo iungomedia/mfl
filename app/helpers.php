@@ -124,3 +124,21 @@ if (!function_exists('hex2rgba')) {
     return 'rgba(' . implode(",", $rgb) . ',' . $opacity . ')';
   }
 }
+
+
+if (!function_exists('filterTeamNameForSearch')) {
+  function filterTeamNameForSearch($name)
+  {
+    return strtolower(str_replace("_" , " ", preg_replace("/([0-9]+)$/", "",trim($name))));
+  }
+}
+
+
+if (!function_exists('filterTeamName')) {
+  function filterTeamName($name)
+  {
+    return trim(preg_replace("/\s([0-9]+)/", "", $name));
+  }
+}
+
+

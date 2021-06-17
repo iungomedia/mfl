@@ -27,7 +27,7 @@
   <div class="containerCards">
     <div class="listCardsResult">
       @foreach ($games as $game)
-      <div class="mix itemCardsResult {{strtolower(str_replace(' ','',$game->category).$game->group)}} {{strtolower(str_replace(' ','',$game->teamOne))}} {{strtolower(str_replace(' ','',$game->teamTwo))}} {{strtolower(str_replace(' ','',$game->journey))}}">
+      <div class="mix itemCardsResult {{strtolower(str_replace(' ','',$game->category).$game->group)}} {{filterTeamNameForSearch($game->teamOne)}} {{filterTeamNameForSearch($game->teamTwo)}} {{strtolower(str_replace(' ','',$game->journey))}}">
         <div class="containCardsResult">
           <div class="headResult">
             <div class="itemHeadResult">
